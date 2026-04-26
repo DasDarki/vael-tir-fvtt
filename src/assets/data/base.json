@@ -1,0 +1,40 @@
+{
+  "skills": [
+    {
+      "id": "erdmarkiert",
+      "name": "Erdmarkiert",
+      "tier": -1,
+      "icon": "erdmarkiert.png",
+      "flavor": "Die Erde hat dich berührt. Du trägst ihre Markierung, auch wenn du sie noch nicht verstehst.",
+      "effects": [
+        "Einmal pro Tag: Handvoll Erde berühren → vager emotionaler Eindruck",
+        "Pflanzen neigen sich leicht zu dir, Erdtiere fürchten dich nicht",
+        "Schwaches Muster unter der Haut, kaum sichtbar"
+      ],
+      "cost": 0,
+      "maxLevel": 1,
+      "requires": [],
+      "excludes": [],
+      "freeWithAder": false,
+      "gridPos": { "col": 3, "row": 0 }
+    },
+    {
+      "id": "erdgebunden",
+      "name": "Erdgebunden",
+      "tier": -1,
+      "icon": "erdgebunden.png",
+      "flavor": "Du hast gewählt. Die Erde hat geantwortet. Ihr seid nun verbunden.",
+      "effects": [
+        "10 Min reglos verharren → Teil der Landschaft (Passive Perception nutzlos, aktiv mit Disadvantage)",
+        "Vorteil auf Überleben-Würfe in natürlicher Umgebung",
+        "Muster werden deutlicher – feine Linien wie Wurzeln an Händen und Unterarmen"
+      ],
+      "cost": 1,
+      "maxLevel": 1,
+      "requires": [{ "type": "skill", "skill": "erdmarkiert" }],
+      "excludes": [],
+      "freeWithAder": false,
+      "gridPos": { "col": 3, "row": 1 }
+    }
+  ]
+}

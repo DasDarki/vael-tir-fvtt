@@ -1,0 +1,47 @@
+// ── Colors ──
+$bg-dark: #0d0f12;
+$bg-panel: #151820;
+$bg-panel-light: #1c2030;
+$bg-hover: #252a3a;
+
+$text-primary: #e8e0d4;
+$text-secondary: #a09888;
+$text-muted: #6a6258;
+
+$gold: #c9a84c;
+$gold-light: #e8cc6a;
+$gold-dark: #8a7030;
+
+$green: #4caf50;
+$green-dim: #2e7d32;
+
+$red: #c0392b;
+$red-dim: #7f2020;
+
+$blue: #3498db;
+
+// Ader Colors
+$color-stein: #a0887a;
+$color-tiefe: #5c6bc0;
+$color-wurzel: #66bb6a;
+$color-asche: #ef5350;
+$color-schleier: #ab47bc;
+$color-wandel: #26a69a;
+
+// ── Sizes ──
+$node-size: 80px;
+$node-size-sm: 64px;
+$node-icon-size: 40px;
+$grid-gap: 12px;
+$border-radius: 8px;
+$tooltip-width: 320px;
+
+// ── Transitions ──
+$transition-fast: 150ms ease;
+$transition-normal: 250ms ease;
+$transition-slow: 400ms ease;
+
+// ── Shadows ──
+$shadow-glow-gold: 0 0 12px rgba($gold, 0.5);
+$shadow-glow-green: 0 0 8px rgba($green, 0.4);
+$shadow-glow-red: 0 0 8px rgba($red, 0.3);

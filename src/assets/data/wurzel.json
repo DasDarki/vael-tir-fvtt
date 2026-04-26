@@ -1,0 +1,387 @@
+{
+  "id": "wurzel",
+  "name": "Wurzel",
+  "fullName": "Ader der Wurzel",
+  "subtitle": "Der Baum",
+  "folder": "3_Wurzel",
+  "gridCols": 7,
+  "gridRows": 6,
+  "connections": [
+    ["0-A", "1-1"], ["0-A", "1-2"], ["0-A", "1-3"],
+    ["0-B", "1-4"], ["0-B", "1-5"], ["0-B", "1-6"],
+    ["0-A", "1-7"], ["0-B", "1-8"],
+    ["0-A", "1-9"], ["0-B", "1-10"],
+    ["1-1", "2-1"], ["1-7", "2-2"],
+    ["1-5", "2-3"],
+    ["1-3", "2-4"], ["1-7", "2-4"],
+    ["1-6", "2-5"], ["1-9", "2-5"],
+    ["2-1", "cap"], ["2-2", "cap"], ["2-3", "cap"], ["2-4", "cap"], ["2-5", "cap"]
+  ],
+  "skills": [
+    {
+      "id": "0-A",
+      "name": "Lebensgespür",
+      "tier": 0,
+      "icon": "0-A.png",
+      "flavor": "Du spürst das Pulsieren des Lebens um dich herum.",
+      "effects": [
+        "Du spürst automatisch alle lebenden Kreaturen in 30 ft. (grobe Richtung und Anzahl)",
+        "Du weißt, ob eine Kreatur in deiner Sicht verletzt ist (nicht volles Leben)",
+        "Vorteil auf Insight Proben beim Erspüren von Untoten und Konstrukten"
+      ],
+      "cost": 1,
+      "maxLevel": 1,
+      "requires": [],
+      "excludes": [],
+      "freeWithAder": false,
+      "gridPos": { "col": 2, "row": 4 }
+    },
+    {
+      "id": "0-B",
+      "name": "Wurzelbindung",
+      "tier": 0,
+      "icon": "0-B.png",
+      "flavor": "Du kannst Fäden des Lebens zwischen dir und anderen weben.",
+      "effects": [
+        "Als Aktion: Binde dich an einen willigen Verbündeten in 30 ft.",
+        "Solange gebunden (max 8 Stunden): Ihr spürt die Emotionen und genaue Gesundheit des anderen",
+        "Du kannst über das Band jegliche Target Heal Spells wirken",
+        "Nur eine Bindung gleichzeitig",
+        "Kann als Bonusaktion gelöst werden"
+      ],
+      "cost": 1,
+      "maxLevel": 1,
+      "requires": [],
+      "excludes": [],
+      "freeWithAder": false,
+      "gridPos": { "col": 4, "row": 4 }
+    },
+    {
+      "id": "1-1",
+      "name": "Tiefenheilung",
+      "tier": 1,
+      "icon": "1-1.png",
+      "flavor": "Deine Heilung ist langsam, aber vollständig.",
+      "effects": [
+        "Wenn du eine Kreatur mit einem Zauber oder einer Fähigkeit heilst, erhält sie zusätzlich Regeneration",
+        "Regeneration: 1W4 TP pro Runde für die nächsten 3 Runden",
+        "Funktioniert auch mit Heiltränken, die du verabreichst"
+      ],
+      "levelEffects": [
+        "Level 2: 1W6 TP pro Runde, 4 Runden",
+        "Level 3: 2W6 TP pro Runde, 5 Runden"
+      ],
+      "cost": 1,
+      "maxLevel": 3,
+      "requires": [{ "type": "tier", "tier": 0, "count": 1 }],
+      "excludes": [],
+      "freeWithAder": false,
+      "gridPos": { "col": 0, "row": 3 }
+    },
+    {
+      "id": "1-2",
+      "name": "Verwurzelte Ruhe",
+      "tier": 1,
+      "icon": "1-2.png",
+      "flavor": "In deiner Nähe heilt das Land selbst.",
+      "effects": [
+        "Während einer kurzen Rast in deiner Gegenwart: Alle Verbündeten in 30 ft. heilen zusätzlich 1W6 TP",
+        "Sie können zudem bei einem CON Check DC 20 1 Stufe Erschöpfung heilen"
+      ],
+      "cost": 1,
+      "maxLevel": 1,
+      "requires": [{ "type": "tier", "tier": 0, "count": 1 }],
+      "excludes": [],
+      "freeWithAder": false,
+      "gridPos": { "col": 1, "row": 3 }
+    },
+    {
+      "id": "1-3",
+      "name": "Lebensband",
+      "tier": 1,
+      "icon": "1-3.png",
+      "flavor": "Du teilst Last und Leid.",
+      "effects": [
+        "Als Reaktion, wenn ein Verbündeter in 30 ft. Schaden erleidet: Teile den Schaden gleichmäßig zwischen euch",
+        "3x pro lange Rast"
+      ],
+      "levelEffects": [
+        "Level 2: 5x pro lange Rast",
+        "Level 3: Unbegrenzt, aber jede Nutzung nach der 5. kostet dich 1W4 zusätzlichen Schaden"
+      ],
+      "cost": 1,
+      "maxLevel": 3,
+      "requires": [{ "type": "tier", "tier": 0, "count": 1 }],
+      "excludes": [],
+      "freeWithAder": false,
+      "gridPos": { "col": 2, "row": 3 }
+    },
+    {
+      "id": "1-4",
+      "name": "Reinigung",
+      "tier": 1,
+      "icon": "1-4.png",
+      "flavor": "Du ziehst Gift und Krankheit heraus wie Wasser aus der Erde.",
+      "effects": [
+        "Als Aktion (1 Minute Konzentration): Beende einen der folgenden Zustände bei einer berührten Kreatur:",
+        "- Vergiftet",
+        "- Eine Krankheit",
+        "- 1 Stufe Erschöpfung",
+        "1x pro lange Rast"
+      ],
+      "cost": 1,
+      "maxLevel": 1,
+      "requires": [{ "type": "tier", "tier": 0, "count": 1 }],
+      "excludes": [],
+      "freeWithAder": false,
+      "gridPos": { "col": 3, "row": 3 }
+    },
+    {
+      "id": "1-5",
+      "name": "Wurzelnetz",
+      "tier": 1,
+      "icon": "1-5.png",
+      "flavor": "Ihr seid alle verbunden.",
+      "effects": [
+        "Erweitert Wurzelbindung: Du kannst bis zu 3 Verbündete gleichzeitig binden",
+        "Alle Gebundenen können als Bonusaktion mental miteinander kommunizieren (30 Worte)"
+      ],
+      "cost": 1,
+      "maxLevel": 1,
+      "requires": [{ "type": "tier", "tier": 0, "count": 1 }],
+      "excludes": [],
+      "freeWithAder": false,
+      "gridPos": { "col": 4, "row": 3 }
+    },
+    {
+      "id": "1-6",
+      "name": "Lebensblüte",
+      "tier": 1,
+      "icon": "1-6.png",
+      "flavor": "Wo du gehst, blüht das Leben auf.",
+      "effects": [
+        "Einmal pro kurze Rast: Berühre den Boden. In einem 15-ft.-Radius wachsen Heilkräuter.",
+        "Kreaturen, die dort eine kurze Rast machen, heilen zusätzlich 2W6 TP",
+        "Die Kräuter verblassen nach 8 Stunden (nicht die gepflückten)"
+      ],
+      "cost": 1,
+      "maxLevel": 1,
+      "requires": [{ "type": "tier", "tier": 0, "count": 1 }],
+      "excludes": [],
+      "freeWithAder": false,
+      "gridPos": { "col": 5, "row": 3 }
+    },
+    {
+      "id": "1-7",
+      "name": "Opferwurzel",
+      "tier": 1,
+      "icon": "1-7.png",
+      "flavor": "Du gibst, damit andere leben.",
+      "effects": [
+        "Als Aktion: Übertrage bis zu 20 deiner eigenen TP auf eine berührte Kreatur",
+        "Die Kreatur erhält die TP sofort",
+        "Du erleidest den Verlust sofort",
+        "Keine Begrenzung der Nutzungen, aber du kannst dich nicht unter 1 TP bringen"
+      ],
+      "levelEffects": [
+        "Level 2: Bis zu 30 TP, Reichweite 10 ft.",
+        "Level 3: Bis zu 50 TP, Reichweite 30 ft."
+      ],
+      "cost": 1,
+      "maxLevel": 3,
+      "requires": [{ "type": "tier", "tier": 0, "count": 1 }],
+      "excludes": [],
+      "freeWithAder": false,
+      "gridPos": { "col": 6, "row": 3 }
+    },
+    {
+      "id": "1-8",
+      "name": "Ahnensegen",
+      "tier": 1,
+      "icon": "1-8.png",
+      "flavor": "Die Toten wachen über die Lebenden.",
+      "effects": [
+        "Einmal pro lange Rast: Rufe einen Ahnengeist, der einen Verbündeten für 1 Stunde beschützt",
+        "Der Beschützte hat +1 auf AC und Rettungswürfe",
+        "Bei einem kritischen Treffer gegen den Beschützten wird der Treffer zu einem normalen Treffer"
+      ],
+      "cost": 1,
+      "maxLevel": 1,
+      "requires": [{ "type": "tier", "tier": 0, "count": 1 }],
+      "excludes": [],
+      "freeWithAder": false,
+      "gridPos": { "col": 1, "row": 2 }
+    },
+    {
+      "id": "1-9",
+      "name": "Wachstumsbeschleunigung",
+      "tier": 1,
+      "icon": "1-9.png",
+      "flavor": "Du beschleunigst natürliche Heilung.",
+      "effects": [
+        "Als Aktion: Berühre eine Kreatur. Für die nächste Stunde heilt sie doppelt so viele TP bei jeder Heilung.",
+        "2x pro lange Rast"
+      ],
+      "cost": 1,
+      "maxLevel": 1,
+      "requires": [{ "type": "tier", "tier": 0, "count": 1 }],
+      "excludes": [],
+      "freeWithAder": false,
+      "gridPos": { "col": 5, "row": 2 }
+    },
+    {
+      "id": "1-10",
+      "name": "Stiller Wächter",
+      "tier": 1,
+      "icon": "1-10.png",
+      "flavor": "Die Erde selbst wacht, während ihr schlaft.",
+      "effects": [
+        "Während einer langen Rast kannst du die Erde bitten, zu wachen",
+        "Jede Kreatur, die den Bereich (50 ft. Radius) betritt, wird von dir gespürt",
+        "Du wirst sofort geweckt, auch aus magischem Schlaf",
+        "Die Erde flüstert dir zu, was sich nähert (Größe, Anzahl, Richtung)",
+        "1x alle 3 Tage"
+      ],
+      "cost": 1,
+      "maxLevel": 1,
+      "requires": [{ "type": "tier", "tier": 0, "count": 1 }],
+      "excludes": [],
+      "freeWithAder": false,
+      "gridPos": { "col": 3, "row": 2 }
+    },
+    {
+      "id": "2-1",
+      "name": "Lebensquelle",
+      "tier": 2,
+      "icon": "2-1.png",
+      "flavor": "Du wirst zur Quelle des Lebens selbst.",
+      "effects": [
+        "Als Aktion: Für die nächste Minute heilen alle Verbündeten in 30 ft. 1W6 TP zu Beginn ihres Zuges",
+        "Du verlierst 1 TP pro geheilte Kreatur pro Runde",
+        "1x pro lange Rast"
+      ],
+      "levelEffects": [
+        "Level 2: 2W6 TP, Radius 60 ft."
+      ],
+      "cost": 2,
+      "maxLevel": 2,
+      "requires": [
+        { "type": "tier", "tier": 1, "count": 3 }
+      ],
+      "excludes": [],
+      "freeWithAder": false,
+      "gridPos": { "col": 1, "row": 1 }
+    },
+    {
+      "id": "2-2",
+      "name": "Todestrotz",
+      "tier": 2,
+      "icon": "2-2.png",
+      "flavor": "Du reißt jemanden von der Schwelle zurück.",
+      "effects": [
+        "Als Aktion: Berühre eine Kreatur, die in der letzten Minute gestorben ist",
+        "Die Kreatur stabilisiert sich mit 1 TP",
+        "Funktioniert NICHT bei Kreaturen, die durch massiven Schaden oder Desintegration starben",
+        "Um es wieder nutzen zu können, bedarf es eine Opfergabe an Moriel im Wert von 50 GP"
+      ],
+      "cost": 2,
+      "maxLevel": 1,
+      "requires": [
+        { "type": "tier", "tier": 1, "count": 3 },
+        { "type": "skill", "skill": "1-7" }
+      ],
+      "excludes": [],
+      "freeWithAder": false,
+      "gridPos": { "col": 2, "row": 1 }
+    },
+    {
+      "id": "2-3",
+      "name": "Symbiotische Bindung",
+      "tier": 2,
+      "icon": "2-3.png",
+      "flavor": "Eure Lebenskraft ist eins.",
+      "effects": [
+        "Erweitert Wurzelnetz: Gebundene Verbündete teilen einen TP-Pool",
+        "Der Pool ist die Summe aller aktuellen TP",
+        "Schaden an einem wird vom Pool abgezogen",
+        "Heilung an einem geht in den Pool",
+        "Wenn der Pool auf 0 fällt, fallen ALLE Gebundenen bewusstlos"
+      ],
+      "cost": 2,
+      "maxLevel": 1,
+      "requires": [
+        { "type": "tier", "tier": 1, "count": 3 },
+        { "type": "skill", "skill": "1-5" }
+      ],
+      "excludes": ["2-4"],
+      "freeWithAder": false,
+      "gridPos": { "col": 3, "row": 1 }
+    },
+    {
+      "id": "2-4",
+      "name": "Seelenanker",
+      "tier": 2,
+      "icon": "2-4.png",
+      "flavor": "Du hältst eine Seele fest, die gehen will.",
+      "effects": [
+        "Solange du eine Kreatur berührst, kann sie nicht sterben (bleibt bei 1 TP)",
+        "Du erleidest 1W6 nekrotischen Schaden pro Runde, die du sie festhältst",
+        "Maximale Dauer: Dein CON-Modifikator Runden (min. 1)",
+        "1x pro lange Rast"
+      ],
+      "cost": 2,
+      "maxLevel": 1,
+      "requires": [
+        { "type": "tier", "tier": 1, "count": 3 }
+      ],
+      "excludes": ["2-3"],
+      "freeWithAder": false,
+      "gridPos": { "col": 4, "row": 1 }
+    },
+    {
+      "id": "2-5",
+      "name": "Naturverbündete",
+      "tier": 2,
+      "icon": "2-5.png",
+      "flavor": "Das Leben selbst kämpft für dich.",
+      "effects": [
+        "Als Aktion: Rufe 2W4 Pflanzenkreaturen (Awakened Shrub Stats) oder 1 Shambling Mound",
+        "Sie kämpfen für dich für 1 Minute",
+        "Danach wurzeln sie sich ein und werden normale Pflanzen",
+        "1x pro lange Rast"
+      ],
+      "cost": 2,
+      "maxLevel": 1,
+      "requires": [
+        { "type": "tier", "tier": 1, "count": 3 }
+      ],
+      "excludes": [],
+      "freeWithAder": false,
+      "gridPos": { "col": 5, "row": 1 }
+    },
+    {
+      "id": "cap",
+      "name": "Herzbaum",
+      "tier": 3,
+      "icon": "cap.png",
+      "flavor": "Du wirst zum lebenden Herz des Waldes selbst.",
+      "effects": [
+        "Aktion, 1x pro lange Rast, Dauer: 1 Minute",
+        "Du wurzelst dich ein – du kannst dich nicht bewegen",
+        "Größenkategorie +1",
+        "Du erhältst 50 temporäre TP",
+        "Alle Verbündeten in 60 ft.: Heilen 2W6 TP zu Beginn ihres Zuges",
+        "Verbündete haben Vorteil auf Rettungswürfe gegen Vergiftet, Krank, Verängstigt",
+        "Verbündete können nicht auf 0 TP fallen (bleiben bei 1 TP) – außer durch kritische Treffer oder nekrotischen Schaden",
+        "Feinde in 60 ft.: Bewegung ist halbiert (Wurzeln greifen nach ihnen)",
+        "Feinde haben Nachteil auf Angriffe gegen deine Verbündeten"
+      ],
+      "cost": 3,
+      "maxLevel": 1,
+      "requires": [{ "type": "tier", "tier": 2, "count": 2 }],
+      "excludes": [],
+      "freeWithAder": false,
+      "gridPos": { "col": 3, "row": 0 }
+    }
+  ]
+}

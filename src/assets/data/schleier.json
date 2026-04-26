@@ -1,0 +1,389 @@
+{
+  "id": "schleier",
+  "name": "Schleier",
+  "fullName": "Ader des Schleiers",
+  "subtitle": "Das Auge",
+  "folder": "5_Schleier",
+  "gridCols": 7,
+  "gridRows": 6,
+  "connections": [
+    ["0-A", "1-1"], ["0-A", "1-2"], ["0-A", "1-3"],
+    ["0-B", "1-4"], ["0-B", "1-5"], ["0-B", "1-6"],
+    ["0-A", "1-7"], ["0-B", "1-8"],
+    ["0-A", "1-9"], ["0-B", "1-10"],
+    ["1-1", "2-1"],
+    ["1-2", "2-2"],
+    ["1-8", "2-3"],
+    ["1-7", "2-4"],
+    ["1-3", "2-5"], ["1-6", "2-5"],
+    ["2-1", "cap"], ["2-2", "cap"], ["2-3", "cap"], ["2-4", "cap"], ["2-5", "cap"]
+  ],
+  "skills": [
+    {
+      "id": "0-A",
+      "name": "Zeitlose Augen",
+      "tier": 0,
+      "icon": "0-A.png",
+      "flavor": "Du siehst mehr als nur das Jetzt.",
+      "effects": [
+        "Wenn du einen Gegenstand berührst, erhältst du einen kurzen Eindruck seines \"wichtigsten Moments\"",
+        "Automatisch, nicht kontrollierbar",
+        "Kann überwältigend sein bei Objekten mit viel Geschichte"
+      ],
+      "cost": 1,
+      "maxLevel": 1,
+      "requires": [],
+      "excludes": [],
+      "freeWithAder": false,
+      "gridPos": { "col": 2, "row": 4 }
+    },
+    {
+      "id": "0-B",
+      "name": "Ahnenflüstern",
+      "tier": 0,
+      "icon": "0-B.png",
+      "flavor": "Die Toten sprechen zu dir -- wenn du zuhörst.",
+      "effects": [
+        "Du spürst, wenn Geister/Seelen in der Nähe sind (100 ft.)",
+        "Du kannst versuchen, mit ihnen zu kommunizieren (sie müssen nicht antworten)",
+        "Geister erkennen dich als \"einen der Schleier\" -- sie fürchten dich nicht automatisch"
+      ],
+      "cost": 1,
+      "maxLevel": 1,
+      "requires": [],
+      "excludes": [],
+      "freeWithAder": false,
+      "gridPos": { "col": 4, "row": 4 }
+    },
+    {
+      "id": "1-1",
+      "name": "Ortsgedächtnis",
+      "tier": 1,
+      "icon": "1-1.png",
+      "flavor": "Jeder Ort erzählt eine Geschichte. Du hörst sie alle.",
+      "effects": [
+        "Aktion (1 Min Konzentration): Lies die letzten 100 Jahre eines Ortes",
+        "Du siehst wichtige Ereignisse als beschleunigte Visionen",
+        "Du weißt, ob hier jemand starb, liebte, kämpfte, trauerte",
+        "1x pro lange Rast"
+      ],
+      "levelEffects": [
+        "Level 2: 500 Jahre",
+        "Level 3: 1.000 Jahre, du kannst nach bestimmten Ereignissen \"suchen\""
+      ],
+      "cost": 1,
+      "maxLevel": 3,
+      "requires": [{ "type": "tier", "tier": 0, "count": 1 }],
+      "excludes": [],
+      "freeWithAder": false,
+      "gridPos": { "col": 0, "row": 3 }
+    },
+    {
+      "id": "1-2",
+      "name": "Wahrheitsauge",
+      "tier": 1,
+      "icon": "1-2.png",
+      "flavor": "Du siehst, was andere verbergen.",
+      "effects": [
+        "Vorteil auf Insight-Würfe",
+        "1x pro kurze Rast: Du weißt mit Sicherheit, ob jemand gerade lügt (eine Aussage)",
+        "Funktioniert nicht gegen Kreaturen, die immun gegen Gedankenlesen sind"
+      ],
+      "cost": 1,
+      "maxLevel": 1,
+      "requires": [{ "type": "tier", "tier": 0, "count": 1 }],
+      "excludes": [],
+      "freeWithAder": false,
+      "gridPos": { "col": 1, "row": 3 }
+    },
+    {
+      "id": "1-3",
+      "name": "Erinnerungsberührung",
+      "tier": 1,
+      "icon": "1-3.png",
+      "flavor": "Du siehst die Vergangenheit durch die Augen anderer.",
+      "effects": [
+        "Berühre eine willige oder bewusstlose Kreatur",
+        "Sieh ihre letzte Stunde aus ihrer Perspektive",
+        "Die Kreatur spürt nicht, dass du siehst (außer sie weiß es)",
+        "1x pro lange Rast"
+      ],
+      "cost": 1,
+      "maxLevel": 1,
+      "requires": [{ "type": "tier", "tier": 0, "count": 1 }],
+      "excludes": [],
+      "freeWithAder": false,
+      "gridPos": { "col": 2, "row": 3 }
+    },
+    {
+      "id": "1-4",
+      "name": "Nebelblick",
+      "tier": 1,
+      "icon": "1-4.png",
+      "flavor": "Der Schleier zwischen den Welten ist dünn für dich.",
+      "effects": [
+        "Du siehst ätherische Kreaturen und Objekte",
+        "Du siehst durch magische Dunkelheit (30 ft.)",
+        "Illusionen erscheinen dir \"durchscheinend\" -- Vorteil auf Saving Throws gegen Illusionen"
+      ],
+      "cost": 1,
+      "maxLevel": 1,
+      "requires": [{ "type": "tier", "tier": 0, "count": 1 }],
+      "excludes": [],
+      "freeWithAder": false,
+      "gridPos": { "col": 3, "row": 3 }
+    },
+    {
+      "id": "1-5",
+      "name": "Stimmen der Gefallenen",
+      "tier": 1,
+      "icon": "1-5.png",
+      "flavor": "Die Toten sprechen. Du hörst zu.",
+      "effects": [
+        "1x pro lange Rast: Führe ein Gespräch mit einer verstorbenen Person",
+        "Die Person muss an diesem Ort gestorben sein ODER du musst etwas von ihr besitzen",
+        "5 Fragen, ehrliche Antworten (soweit der Tote sie wusste)",
+        "Der Tote erinnert sich nicht an das Gespräch danach"
+      ],
+      "levelEffects": [
+        "Level 2: 10 Fragen",
+        "Level 3: Unbegrenzte Fragen für 10 Minuten, der Tote kann auch FRAGEN stellen"
+      ],
+      "cost": 1,
+      "maxLevel": 3,
+      "requires": [{ "type": "tier", "tier": 0, "count": 1 }],
+      "excludes": [],
+      "freeWithAder": false,
+      "gridPos": { "col": 4, "row": 3 }
+    },
+    {
+      "id": "1-6",
+      "name": "Verborgenes Wissen",
+      "tier": 1,
+      "icon": "1-6.png",
+      "flavor": "Die Erde bewahrt Geheimnisse.",
+      "effects": [
+        "1x pro Tag: Stelle der Erde zwei Ja/Nein-Fragen über etwas, das an diesem Ort passiert ist",
+        "Die Antwort ist immer wahrheitsgemäß",
+        "Manchmal antwortet die Erde mit einer Vision statt Worten"
+      ],
+      "levelEffects": [
+        "Level 2: 3 Fragen",
+        "Level 3: 5 Fragen"
+      ],
+      "cost": 1,
+      "maxLevel": 3,
+      "requires": [{ "type": "tier", "tier": 0, "count": 1 }],
+      "excludes": [],
+      "freeWithAder": false,
+      "gridPos": { "col": 5, "row": 3 }
+    },
+    {
+      "id": "1-7",
+      "name": "Prophezeiungsschutz",
+      "tier": 1,
+      "icon": "1-7.png",
+      "flavor": "Du hast zu oft in die Zukunft gesehen. Sie hat auch in dich gesehen.",
+      "effects": [
+        "Immunität gegen Divinations-Zauber, die dich ohne deine Zustimmung betreffen",
+        "Du spürst, wenn jemand versucht, dich magisch zu beobachten",
+        "Du kannst wählen, ob du der Beobachtung erlaubst oder sie blockierst"
+      ],
+      "cost": 1,
+      "maxLevel": 1,
+      "requires": [{ "type": "tier", "tier": 0, "count": 1 }],
+      "excludes": [],
+      "freeWithAder": false,
+      "gridPos": { "col": 6, "row": 3 }
+    },
+    {
+      "id": "1-8",
+      "name": "Ahnenruf",
+      "tier": 1,
+      "icon": "1-8.png",
+      "flavor": "Du rufst einen Ahnengeist zur Beratung.",
+      "effects": [
+        "Aktion (10 Min Ritual): Rufe einen Ahnengeist",
+        "Der Geist ist weise, aber nicht allwissend",
+        "Er kann beraten, Fragen beantworten, Warnungen aussprechen",
+        "Er bleibt für 1 Stunde oder bis du ihn entlässt",
+        "1x pro Sonnenaufgang"
+      ],
+      "cost": 1,
+      "maxLevel": 1,
+      "requires": [{ "type": "tier", "tier": 0, "count": 1 }],
+      "excludes": [],
+      "freeWithAder": false,
+      "gridPos": { "col": 1, "row": 2 }
+    },
+    {
+      "id": "1-9",
+      "name": "Zeitgespür",
+      "tier": 1,
+      "icon": "1-9.png",
+      "flavor": "Du spürst den Fluss der Zeit.",
+      "effects": [
+        "Du weißt immer die exakte Uhrzeit und das Datum",
+        "Du spürst, wenn Zeit manipuliert wird (Zeitstop, Slow, Haste)",
+        "Vorteil auf Rettungswürfe gegen zeitmanipulierende Effekte"
+      ],
+      "cost": 1,
+      "maxLevel": 1,
+      "requires": [{ "type": "tier", "tier": 0, "count": 1 }],
+      "excludes": [],
+      "freeWithAder": false,
+      "gridPos": { "col": 5, "row": 2 }
+    },
+    {
+      "id": "1-10",
+      "name": "Schleierblick",
+      "tier": 1,
+      "icon": "1-10.png",
+      "flavor": "Du siehst die Fäden, die alles verbinden.",
+      "effects": [
+        "1x pro lange Rast: Sieh die \"Fäden\" einer Situation",
+        "Du verstehst Verbindungen: Wer ist wem loyal? Wer lügt? Was ist der versteckte Zusammenhang?",
+        "Dies ist keine Gedankenleserei -- es ist MUSTER-Erkennung auf göttlicher Ebene",
+        "Funktioniert bei Situationen, nicht bei einzelnen Personen"
+      ],
+      "cost": 1,
+      "maxLevel": 1,
+      "requires": [{ "type": "tier", "tier": 0, "count": 1 }],
+      "excludes": [],
+      "freeWithAder": false,
+      "gridPos": { "col": 3, "row": 2 }
+    },
+    {
+      "id": "2-1",
+      "name": "Chronist",
+      "tier": 2,
+      "icon": "2-1.png",
+      "flavor": "Du erlebst die Vergangenheit, als wärst du dabei gewesen.",
+      "effects": [
+        "1x pro lange Rast: Wähle ein Ereignis, von dem du weißt (max 500 Jahre)",
+        "Du ERLEBST dieses Ereignis aus der Perspektive eines Anwesenden",
+        "Du siehst, hörst, riechst alles",
+        "Du kannst nicht eingreifen -- du bist nur Beobachter",
+        "Nach der Vision bist du für 1W4 Stunden desorientiert (Nachteil auf Wahrnehmung)"
+      ],
+      "cost": 2,
+      "maxLevel": 1,
+      "requires": [
+        { "type": "tier", "tier": 1, "count": 3 },
+        { "type": "skill", "skill": "1-1" }
+      ],
+      "excludes": ["2-4"],
+      "freeWithAder": false,
+      "gridPos": { "col": 1, "row": 1 }
+    },
+    {
+      "id": "2-2",
+      "name": "Wahrheitsbrecher",
+      "tier": 2,
+      "icon": "2-2.png",
+      "flavor": "Keine Lüge kann vor dir bestehen.",
+      "effects": [
+        "Du weißt IMMER, wenn jemand in deiner Gegenwart lügt (keine Aktion, keine Limits)",
+        "1x pro lange Rast: Zwinge jemanden, eine Frage wahrheitsgemäß zu beantworten (CHA DC 15, bei Fehlschlag wissen sie, dass du es versucht hast)"
+      ],
+      "cost": 2,
+      "maxLevel": 1,
+      "requires": [
+        { "type": "tier", "tier": 1, "count": 3 },
+        { "type": "skill", "skill": "1-2" }
+      ],
+      "excludes": [],
+      "freeWithAder": false,
+      "gridPos": { "col": 2, "row": 1 }
+    },
+    {
+      "id": "2-3",
+      "name": "Ahnenkonklave",
+      "tier": 2,
+      "icon": "2-3.png",
+      "flavor": "Du rufst nicht einen Geist -- du rufst einen Rat.",
+      "effects": [
+        "Erweitert Ahnenruf: Rufe bis zu 5 Ahnengeister gleichzeitig",
+        "Die Geister beraten sich untereinander",
+        "Sie können Wissen kombinieren, das keiner einzeln hatte",
+        "Dauert 10 Minuten, bleibt für 1 Stunde",
+        "1x pro lange Rast"
+      ],
+      "cost": 2,
+      "maxLevel": 1,
+      "requires": [
+        { "type": "tier", "tier": 1, "count": 3 },
+        { "type": "skill", "skill": "1-8" }
+      ],
+      "excludes": [],
+      "freeWithAder": false,
+      "gridPos": { "col": 3, "row": 1 }
+    },
+    {
+      "id": "2-4",
+      "name": "Prophezeiung",
+      "tier": 2,
+      "icon": "2-4.png",
+      "flavor": "Du siehst, was sein KÖNNTE.",
+      "effects": [
+        "1x pro lange Rast: Sieh die wahrscheinlichste Zukunft der nächsten Stunde",
+        "Die Vision ist nicht absolut -- Handlungen können sie ändern",
+        "Du siehst Konsequenzen deiner geplanten Aktionen",
+        "Die Vision kann fragmentarisch sein (DM-Ermessen)"
+      ],
+      "cost": 2,
+      "maxLevel": 1,
+      "requires": [
+        { "type": "tier", "tier": 1, "count": 3 }
+      ],
+      "excludes": ["2-1"],
+      "freeWithAder": false,
+      "gridPos": { "col": 4, "row": 1 }
+    },
+    {
+      "id": "2-5",
+      "name": "Gedächtnispalast",
+      "tier": 2,
+      "icon": "2-5.png",
+      "flavor": "Dein Geist ist eine Festung aus Erinnerungen.",
+      "effects": [
+        "Du kannst nicht magisch gezwungen werden, etwas zu vergessen",
+        "Immunität gegen Memory-Manipulation (Modify Memory, etc.)",
+        "Du kannst perfekt wiedergeben, was du gesehen oder gehört hast",
+        "1x pro lange Rast: \"Speichere\" eine Szene und gib sie später exakt wieder (wie ein Video)"
+      ],
+      "cost": 2,
+      "maxLevel": 1,
+      "requires": [
+        { "type": "tier", "tier": 1, "count": 3 }
+      ],
+      "excludes": [],
+      "freeWithAder": false,
+      "gridPos": { "col": 5, "row": 1 }
+    },
+    {
+      "id": "cap",
+      "name": "Chronist des Landes",
+      "tier": 3,
+      "icon": "cap.png",
+      "flavor": "Du bist das Gedächtnis der Welt. Alles, was je war, lebt in dir.",
+      "effects": [
+        "Aktivierung: 1 Stunde Ritual, 1x pro Woche",
+        "Wähle ein Ereignis aus der Geschichte (max 500 Jahre zurück)",
+        "Du erlebst dieses Ereignis vollständig",
+        "Du siehst durch ihre Augen, hörst ihre Gedanken, fühlst ihre Emotionen",
+        "Du erhältst vollständige Information: Namen, Orte, Gespräche, Geheimnisse",
+        "Du kannst Dinge sehen, die niemand sonst mehr weiß",
+        "Du kannst Fragen an Anwesende stellen",
+        "Dein Körper liegt reglos für die Dauer -- du kannst nicht aufwachen bis die Vision endet",
+        "Die Vision ist real für dich -- du fühlst Schmerz, Freude, Angst"
+      ],
+      "cost": 3,
+      "maxLevel": 1,
+      "requires": [{ "type": "tier", "tier": 2, "count": 2 }],
+      "excludes": [],
+      "freeWithAder": false,
+      "gridPos": { "col": 3, "row": 0 }
+    }
+  ]
+}

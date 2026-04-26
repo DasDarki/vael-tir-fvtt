@@ -1,0 +1,51 @@
+<div class="erdgebunden-ader">
+  <div class="erdgebunden-header">
+    <button type="button" class="nav-btn" data-action="nav-main">
+      <i class="fas fa-arrow-left"></i> Zurück
+    </button>
+    <h2>{{ader.fullName}}</h2>
+    <span class="ader-subtitle">{{ader.subtitle}}</span>
+    <div class="header-info">
+      <span class="ahnensteine-count">
+        <i class="fas fa-gem"></i> {{ahnensteine}}
+      </span>
+      <span class="invested-count">
+        <i class="fas fa-coins"></i> {{invested}} investiert
+      </span>
+      {{#unless isActive}}
+        <span class="ader-inactive-badge">Nicht aktiviert</span>
+      {{/unless}}
+    </div>
+  </div>
+
+  <div class="skill-grid-container">
+    {{!-- Background image with dark overlay --}}
+    <div class="ader-bg" style="background-image: url('{{bgUrl}}');"></div>
+    <div class="ader-bg-overlay"></div>
+
+    {{!-- Skill Grid --}}
+    <div class="skill-grid" style="grid-template-columns: auto repeat({{gridCols}}, 1fr); grid-template-rows: repeat({{gridRows}}, 1fr);">
+      {{!-- Tier Labels in first column --}}
+      {{#each tierLabels}}
+        <div class="tier-label" style="grid-column: 1; grid-row: {{this.gridRow}};">{{this.label}}</div>
+      {{/each}}
+      {{#each skills}}
+        <div
+          class="skill-node skill-node--tier{{this.tier}} state-{{this.state}}"
+          style="{{this.gridStyle}}"
+          data-skill-key="{{this.key}}"
+          data-skill-id="{{this.id}}"
+          title="{{this.name}}"
+        >
+          {{#if (gt this.maxLevel 1)}}
+            <div class="skill-node-badge">{{this.level}}/{{this.maxLevel}}</div>
+          {{/if}}
+          <div class="skill-node-inner">
+            <img class="skill-node-icon" src="{{this.iconUrl}}" alt="{{this.name}}" />
+            <div class="skill-node-name">{{this.name}}</div>
+          </div>
+        </div>
+      {{/each}}
+    </div>
+  </div>
+</div>

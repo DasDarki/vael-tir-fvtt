@@ -1,0 +1,156 @@
+@use "sass:color";
+@use "variables" as *;
+
+.skill-tooltip-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+  backdrop-filter: blur(2px);
+}
+
+.skill-tooltip {
+  background: $bg-panel;
+  border: 1px solid $gold-dark;
+  border-radius: $border-radius;
+  padding: 18px;
+  width: $tooltip-width;
+  max-height: 80%;
+  overflow-y: auto;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.5);
+  color: $text-primary;
+
+  .tooltip-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 10px;
+
+    h3 {
+      margin: 0;
+      font-size: 1.2rem;
+      color: $gold-light;
+      flex: 1;
+    }
+
+    .tooltip-tier {
+      font-size: 0.8rem;
+      color: $text-muted;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .tooltip-close {
+      background: none;
+      border: none;
+      color: $text-secondary;
+      cursor: pointer;
+      padding: 4px;
+      font-size: 1rem;
+
+      &:hover { color: $text-primary; }
+    }
+  }
+
+  .tooltip-flavor {
+    font-size: 0.9rem;
+    color: $text-secondary;
+    margin: 0 0 12px;
+    line-height: 1.4;
+  }
+
+  .tooltip-state {
+    display: inline-block;
+    padding: 3px 12px;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    margin-bottom: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+
+    &.state-unlocked {
+      background: rgba($gold, 0.15);
+      color: $gold-light;
+      border: 1px solid $gold-dark;
+    }
+    &.state-available {
+      background: rgba($green, 0.15);
+      color: $green;
+      border: 1px solid $green-dim;
+    }
+    &.state-locked {
+      background: rgba($text-muted, 0.1);
+      color: $text-muted;
+      border: 1px solid $text-muted;
+    }
+    &.state-excluded {
+      background: rgba($red, 0.1);
+      color: $red;
+      border: 1px solid $red-dim;
+    }
+  }
+
+  .tooltip-effects, .tooltip-level-effects {
+    margin-bottom: 12px;
+
+    h4 {
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: $text-secondary;
+      margin: 0 0 4px;
+    }
+
+    ul {
+      margin: 0;
+      padding-left: 16px;
+      list-style: disc;
+
+      li {
+        font-size: 0.9rem;
+        line-height: 1.4;
+        color: $text-primary;
+        margin-bottom: 3px;
+      }
+    }
+  }
+
+  .tooltip-level-effects {
+    h4 { color: $blue; }
+    li { color: $text-secondary; }
+  }
+
+  .tooltip-cost {
+    font-size: 0.9rem;
+    color: $text-secondary;
+    margin-bottom: 8px;
+  }
+
+  .tooltip-reason {
+    font-size: 0.85rem;
+    color: $red;
+    margin-bottom: 10px;
+  }
+
+  .tooltip-unlock-btn {
+    width: 100%;
+    padding: 8px 16px;
+    background: linear-gradient(135deg, $green-dim, color.adjust($green, $lightness: -10%));
+    color: white;
+    border: 1px solid $green;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    font-weight: bold;
+    transition: all $transition-fast;
+
+    &:hover {
+      background: linear-gradient(135deg, $green, $green-dim);
+      box-shadow: $shadow-glow-green;
+    }
+  }
+}

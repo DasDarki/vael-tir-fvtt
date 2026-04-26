@@ -1,0 +1,372 @@
+{
+  "id": "stein",
+  "name": "Stein",
+  "fullName": "Ader des Steins",
+  "subtitle": "Der Berg",
+  "folder": "1_Stein",
+  "gridCols": 7,
+  "gridRows": 6,
+  "connections": [
+    ["0-A", "1-1"], ["0-A", "1-2"], ["0-A", "1-3"],
+    ["0-B", "1-4"], ["0-B", "1-5"], ["0-B", "1-6"],
+    ["0-A", "1-7"], ["0-B", "1-8"],
+    ["0-A", "1-9"], ["0-B", "1-10"],
+    ["1-1", "2-1"], ["1-6", "2-1"], ["1-10", "2-1"],
+    ["1-2", "2-2"], ["1-4", "2-2"],
+    ["1-5", "2-3"],
+    ["1-7", "2-4"],
+    ["1-3", "2-5"], ["1-4", "2-5"],
+    ["2-1", "cap"], ["2-2", "cap"], ["2-3", "cap"], ["2-4", "cap"], ["2-5", "cap"]
+  ],
+  "skills": [
+    {
+      "id": "0-A",
+      "name": "Steinherz",
+      "tier": 0,
+      "icon": "0-A.png",
+      "flavor": "Dein Herz schlägt im Rhythmus der Erde – langsam, beständig, unerschütterlich.",
+      "effects": [
+        "Vorteil auf Rettungswürfe gegen Verängstigt",
+        "Kann nicht natürlich (Intimidation) in Panik versetzt werden",
+        "Ruhepuls spürbar langsamer (NPC-Reaktionen)"
+      ],
+      "cost": 1,
+      "maxLevel": 1,
+      "requires": [],
+      "excludes": [],
+      "freeWithAder": false,
+      "gridPos": { "col": 2, "row": 4 }
+    },
+    {
+      "id": "0-B",
+      "name": "Standhaft",
+      "tier": 0,
+      "icon": "0-B.png",
+      "flavor": "Du stehst, wo andere fallen.",
+      "effects": [
+        "+1 AC wenn letzte Runde ≤10 ft. Bewegung",
+        "Kann nicht unfreiwillig zu Boden geworfen werden auf Erde/Stein"
+      ],
+      "cost": 1,
+      "maxLevel": 1,
+      "requires": [],
+      "excludes": [],
+      "freeWithAder": false,
+      "gridPos": { "col": 4, "row": 4 }
+    },
+    {
+      "id": "1-1",
+      "name": "Erdgespür",
+      "tier": 1,
+      "icon": "1-1.png",
+      "flavor": "Du spürst, was den Boden berührt.",
+      "effects": [
+        "Aktion (1 Min): Spüre alle nicht verborgenen Kreaturen in 30 ft. auf dem Boden",
+        "Position, Größe und ungefähres Gewicht bekannt",
+        "1x pro kurze Rast"
+      ],
+      "levelEffects": [
+        "Level 2: Reichweite 60 ft.",
+        "Level 3: Reichweite 120 ft., auch verborgene Kreaturen"
+      ],
+      "cost": 1,
+      "maxLevel": 3,
+      "requires": [{ "type": "tier", "tier": 0, "count": 1 }],
+      "excludes": [],
+      "freeWithAder": false,
+      "gridPos": { "col": 0, "row": 3 }
+    },
+    {
+      "id": "1-2",
+      "name": "Steinerner Wille",
+      "tier": 1,
+      "icon": "1-2.png",
+      "flavor": "Dein Geist ist wie Granit.",
+      "effects": [
+        "Resistenz gegen Psychischen Schaden",
+        "1x pro lange Rast: Wiederhole fehlgeschlagenen WIS-Rettungswurf"
+      ],
+      "cost": 1,
+      "maxLevel": 1,
+      "requires": [{ "type": "tier", "tier": 0, "count": 1 }],
+      "excludes": [],
+      "freeWithAder": false,
+      "gridPos": { "col": 1, "row": 3 }
+    },
+    {
+      "id": "1-3",
+      "name": "Erdanker",
+      "tier": 1,
+      "icon": "1-3.png",
+      "flavor": "Du bist verwurzelt.",
+      "effects": [
+        "Kann nicht gegen Willen bewegt werden (magisch oder physisch)",
+        "Vorteil auf STR-Rettungswürfe gegen Bewegungseffekte"
+      ],
+      "cost": 1,
+      "maxLevel": 1,
+      "requires": [{ "type": "tier", "tier": 0, "count": 1 }],
+      "excludes": ["1-8"],
+      "freeWithAder": false,
+      "gridPos": { "col": 2, "row": 3 }
+    },
+    {
+      "id": "1-4",
+      "name": "Geduldiger Fels",
+      "tier": 1,
+      "icon": "1-4.png",
+      "flavor": "Der Berg wartet. Du auch.",
+      "effects": [
+        "Keine Aktion im Kampf (nur Dodge/Ready/nichts) → 1W10 temp TP am Zugende",
+        "Temp TP stapeln sich (max 20), verschwinden nach Kampf"
+      ],
+      "cost": 1,
+      "maxLevel": 1,
+      "requires": [{ "type": "tier", "tier": 0, "count": 1 }],
+      "excludes": [],
+      "freeWithAder": false,
+      "gridPos": { "col": 3, "row": 3 }
+    },
+    {
+      "id": "1-5",
+      "name": "Schwere Schritte",
+      "tier": 1,
+      "icon": "1-5.png",
+      "flavor": "Deine Präsenz hat Gewicht.",
+      "effects": [
+        "Kreaturen in 5 ft. haben Nachteil auf Angriffe gegen andere Ziele als dich"
+      ],
+      "levelEffects": [
+        "Level 2: Reichweite 10 ft.",
+        "Level 3: Reichweite 20 ft., Angriffe gegen andere können nicht criten"
+      ],
+      "cost": 1,
+      "maxLevel": 3,
+      "requires": [{ "type": "tier", "tier": 0, "count": 1 }],
+      "excludes": [],
+      "freeWithAder": false,
+      "gridPos": { "col": 4, "row": 3 }
+    },
+    {
+      "id": "1-6",
+      "name": "Staubhaut",
+      "tier": 1,
+      "icon": "1-6.png",
+      "flavor": "Erde und Staub haften an dir – und schützen dich.",
+      "effects": [
+        "Reaktion auf Treffer: Reduziere Schaden um 1W10 + CON-Mod",
+        "Nicht bei kritischen Treffern, 1x pro kurze Rast"
+      ],
+      "levelEffects": [
+        "Level 2: 2W10 + CON-Mod, 2x pro kurze Rast",
+        "Level 3: 3W10 + CON-Mod, auch bei kritischen Treffern"
+      ],
+      "cost": 1,
+      "maxLevel": 3,
+      "requires": [{ "type": "tier", "tier": 0, "count": 1 }],
+      "excludes": [],
+      "freeWithAder": false,
+      "gridPos": { "col": 5, "row": 3 }
+    },
+    {
+      "id": "1-7",
+      "name": "Echos der Gefallenen",
+      "tier": 1,
+      "icon": "1-7.png",
+      "flavor": "Du hörst die letzten Worte derer, die hier fielen.",
+      "effects": [
+        "Spüre wenn jemand hier starb (letzte 24h)",
+        "1x pro lange Rast: Höre letzte Worte/Gedanken eines Toten"
+      ],
+      "cost": 1,
+      "maxLevel": 1,
+      "requires": [{ "type": "tier", "tier": 0, "count": 1 }],
+      "excludes": [],
+      "freeWithAder": false,
+      "gridPos": { "col": 6, "row": 3 }
+    },
+    {
+      "id": "1-8",
+      "name": "Steinschritt",
+      "tier": 1,
+      "icon": "1-8.png",
+      "flavor": "Du bewegst dich durch Fels wie andere durch Wasser.",
+      "effects": [
+        "Bewegung durch Erde und unbearbeiteten Stein (5 ft./Runde)",
+        "Kein Atmen möglich dabei",
+        "Bearbeiteter Stein blockiert"
+      ],
+      "cost": 1,
+      "maxLevel": 1,
+      "requires": [{ "type": "tier", "tier": 0, "count": 1 }],
+      "excludes": ["1-3"],
+      "freeWithAder": false,
+      "gridPos": { "col": 1, "row": 2 }
+    },
+    {
+      "id": "1-9",
+      "name": "Bergeszorn",
+      "tier": 1,
+      "icon": "1-9.png",
+      "flavor": "Die Erde bebt, wenn du wütend bist.",
+      "effects": [
+        "Bei ≤50% TP: Alle in 10 ft. DEX-Save oder zu Boden",
+        "DC 8 + CON + Proficiency, automatisch"
+      ],
+      "levelEffects": [
+        "Level 2: Du entscheidest, wer betroffen ist"
+      ],
+      "cost": 1,
+      "maxLevel": 2,
+      "requires": [{ "type": "tier", "tier": 0, "count": 1 }],
+      "excludes": [],
+      "freeWithAder": false,
+      "gridPos": { "col": 5, "row": 2 }
+    },
+    {
+      "id": "1-10",
+      "name": "Lebendige Rüstung",
+      "tier": 1,
+      "icon": "1-10.png",
+      "flavor": "Stein und Erde formen sich zu deinem Schutz.",
+      "effects": [
+        "Bonusaktion: Erdige Rüstung, +2 AC für 1 Min, -10 ft. Bewegung",
+        "1x pro kurze Rast"
+      ],
+      "cost": 1,
+      "maxLevel": 1,
+      "requires": [{ "type": "tier", "tier": 0, "count": 1 }],
+      "excludes": [],
+      "freeWithAder": false,
+      "gridPos": { "col": 3, "row": 2 }
+    },
+    {
+      "id": "2-1",
+      "name": "Bergeshaut",
+      "tier": 2,
+      "icon": "2-1.png",
+      "flavor": "Die Erde selbst wird zu deiner Haut.",
+      "effects": [
+        "Resistenz gegen Wucht-, Stich- und Hiebschaden (nicht-magisch)",
+        "Haut hat leichten Steinton (permanent, kosmetisch)"
+      ],
+      "levelEffects": [
+        "Level 2: Auch Resistenz gegen magische physische Angriffe"
+      ],
+      "cost": 2,
+      "maxLevel": 2,
+      "requires": [
+        { "type": "tier", "tier": 1, "count": 3 },
+        { "type": "skillOr", "skills": ["1-6", "1-10"] }
+      ],
+      "excludes": [],
+      "freeWithAder": false,
+      "gridPos": { "col": 1, "row": 1 }
+    },
+    {
+      "id": "2-2",
+      "name": "Unbeugsam",
+      "tier": 2,
+      "icon": "2-2.png",
+      "flavor": "Was dich nicht tötet, macht dich härter.",
+      "effects": [
+        "Bei 0 TP → bleibe auf 1 TP (1x pro lange Rast)",
+        "Vorteil auf Todesrettungswürfe",
+        "Stabilisierung bei 2 Erfolgen statt 3"
+      ],
+      "cost": 2,
+      "maxLevel": 1,
+      "requires": [
+        { "type": "tier", "tier": 1, "count": 3 },
+        { "type": "skillOr", "skills": ["1-2", "1-4"] }
+      ],
+      "excludes": [],
+      "freeWithAder": false,
+      "gridPos": { "col": 2, "row": 1 }
+    },
+    {
+      "id": "2-3",
+      "name": "Erdenwächter",
+      "tier": 2,
+      "icon": "2-3.png",
+      "flavor": "Du beschützt, wie der Berg das Tal beschützt.",
+      "effects": [
+        "1x pro Runde: Reaktion → Schaden eines Verbündeten in 10 ft. auf dich umleiten",
+        "Du erleidest vollen Schaden, Verbündeter nichts"
+      ],
+      "cost": 2,
+      "maxLevel": 1,
+      "requires": [
+        { "type": "tier", "tier": 1, "count": 3 },
+        { "type": "skill", "skill": "1-5" }
+      ],
+      "excludes": ["2-5"],
+      "freeWithAder": false,
+      "gridPos": { "col": 3, "row": 1 }
+    },
+    {
+      "id": "2-4",
+      "name": "Stimme des Berges",
+      "tier": 2,
+      "icon": "2-4.png",
+      "flavor": "Du sprichst, und die Erde antwortet.",
+      "effects": [
+        "Sprich mit der Erde (wie Stone Tell, aber tiefer)",
+        "Erde erzählt von allem der letzten 500 Jahre",
+        "1x pro lange Rast, 10 Min Gespräch"
+      ],
+      "cost": 2,
+      "maxLevel": 1,
+      "requires": [
+        { "type": "tier", "tier": 1, "count": 3 },
+        { "type": "skill", "skill": "1-7" }
+      ],
+      "excludes": [],
+      "freeWithAder": false,
+      "gridPos": { "col": 4, "row": 1 }
+    },
+    {
+      "id": "2-5",
+      "name": "Monument",
+      "tier": 2,
+      "icon": "2-5.png",
+      "flavor": "Du wirst zum lebenden Denkmal.",
+      "effects": [
+        "Aktion: Werde Monument (1 Min) – keine Bewegung aber:",
+        "+4 AC, Immunität gegen Bewegungseffekte",
+        "Verbündete in 15 ft. +2 auf Rettungswürfe",
+        "1x pro lange Rast"
+      ],
+      "cost": 2,
+      "maxLevel": 1,
+      "requires": [
+        { "type": "tier", "tier": 1, "count": 3 },
+        { "type": "skillAnd", "skills": ["1-3", "1-4"] }
+      ],
+      "excludes": ["2-3"],
+      "freeWithAder": false,
+      "gridPos": { "col": 5, "row": 1 }
+    },
+    {
+      "id": "cap",
+      "name": "Avatar des Berges",
+      "tier": 3,
+      "icon": "cap.png",
+      "flavor": "Du BIST der Berg. Unerschütterlich. Ewig. Geduldig.",
+      "effects": [
+        "Aktion, 1x pro lange Rast, 1 Min Dauer",
+        "Größenkategorie +1 (Mittel → Groß)",
+        "+3 AC, Resistenz gegen ALLEN Schaden außer Psychisch",
+        "Nahkampf +2W8 Wuchtschaden",
+        "Max 15 ft. Bewegung pro Zug",
+        "Alle in 10 ft. Nachteil auf Angriffe gegen andere Ziele"
+      ],
+      "cost": 3,
+      "maxLevel": 1,
+      "requires": [{ "type": "tier", "tier": 2, "count": 2 }],
+      "excludes": [],
+      "freeWithAder": false,
+      "gridPos": { "col": 3, "row": 0 }
+    }
+  ]
+}

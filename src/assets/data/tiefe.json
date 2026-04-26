@@ -1,0 +1,384 @@
+{
+  "id": "tiefe",
+  "name": "Tiefe",
+  "fullName": "Ader der Tiefe",
+  "subtitle": "Der Riss",
+  "folder": "2_Tiefe",
+  "gridCols": 7,
+  "gridRows": 6,
+  "connections": [
+    ["0-A", "1-1"], ["0-A", "1-2"], ["0-A", "1-3"],
+    ["0-A", "1-7"], ["0-A", "1-9"],
+    ["0-B", "1-4"], ["0-B", "1-5"], ["0-B", "1-6"],
+    ["0-B", "1-8"], ["0-B", "1-10"],
+    ["1-4", "2-1"], ["1-3", "2-1"],
+    ["1-5", "2-2"], ["1-9", "2-2"],
+    ["1-6", "2-3"], ["1-8", "2-3"],
+    ["1-7", "2-4"],
+    ["1-6", "2-5"],
+    ["2-1", "cap"], ["2-2", "cap"], ["2-3", "cap"], ["2-4", "cap"], ["2-5", "cap"]
+  ],
+  "skills": [
+    {
+      "id": "0-A",
+      "name": "Spaltenblick",
+      "tier": 0,
+      "icon": "0-A.png",
+      "flavor": "Du siehst die Risse in allem \u2013 in Mauern, in Pl\u00e4nen, in Menschen.",
+      "effects": [
+        "Vorteil auf Investigation Checks wenn du nach strukturellen Schw\u00e4chen suchst",
+        "Vorteil auf Wahrnehmung-W\u00fcrfe, um versteckte T\u00fcren, Fallen oder Geheimg\u00e4nge zu finden",
+        "Tremorsense 10 ft. in absoluter und magischer Dunkelheit"
+      ],
+      "cost": 1,
+      "maxLevel": 1,
+      "requires": [],
+      "excludes": [],
+      "freeWithAder": false,
+      "gridPos": { "col": 2, "row": 4 }
+    },
+    {
+      "id": "0-B",
+      "name": "Staubschatten",
+      "tier": 0,
+      "icon": "0-B.png",
+      "flavor": "Du verschwindest in den Rissen der Welt.",
+      "effects": [
+        "Vorteil auf Stealth in Schatten oder Dunkelheit wenn du dich nicht bewegst",
+        "Bei bestehendem Vorteil: 1x pro kurze Rast einen Stealth-Check neu w\u00fcrfeln"
+      ],
+      "cost": 1,
+      "maxLevel": 1,
+      "requires": [],
+      "excludes": [],
+      "freeWithAder": false,
+      "gridPos": { "col": 4, "row": 4 }
+    },
+    {
+      "id": "1-1",
+      "name": "Risswanderer",
+      "tier": 1,
+      "icon": "1-1.png",
+      "flavor": "Du bewegst dich durch Spalten, die f\u00fcr andere unsichtbar sind.",
+      "effects": [
+        "Durch R\u00e4ume zw\u00e4ngen bis minimal zur H\u00e4lfte deiner Gr\u00f6\u00dfe",
+        "Schwieriges Terrain kostet keine extra Bewegung",
+        "Horizontal an rauen W\u00e4nden klettern/h\u00e4ngen ohne Probe (halbe Bewegung)"
+      ],
+      "cost": 1,
+      "maxLevel": 1,
+      "requires": [{ "type": "tier", "tier": 0, "count": 1 }],
+      "excludes": [],
+      "freeWithAder": false,
+      "gridPos": { "col": 0, "row": 3 }
+    },
+    {
+      "id": "1-2",
+      "name": "Erdspur",
+      "tier": 1,
+      "icon": "1-2.png",
+      "flavor": "Die Erde verr\u00e4t dir alles.",
+      "effects": [
+        "Ber\u00fchrte Spuren verfolgen, als w\u00fcrden sie aufleuchten",
+        "Vorteil auf \u00dcberleben-W\u00fcrfe zum Verfolgen",
+        "Sp\u00fcre ob jemand in den letzten 24 Stunden \u00fcber einen bestimmten Boden gegangen ist (Person muss bekannt sein)"
+      ],
+      "levelEffects": [
+        "Level 2: 48 Stunden, ungef\u00e4hres Gewicht und Gangart bekannt",
+        "Level 3: 1 Woche, Spur bis zu 1 Meile weit f\u00fchlen (wie Locate Person)"
+      ],
+      "cost": 1,
+      "maxLevel": 3,
+      "requires": [{ "type": "tier", "tier": 0, "count": 1 }],
+      "excludes": [],
+      "freeWithAder": false,
+      "gridPos": { "col": 1, "row": 3 }
+    },
+    {
+      "id": "1-3",
+      "name": "Lebendiger Schatten",
+      "tier": 1,
+      "icon": "1-3.png",
+      "flavor": "Dein Schatten gehorcht dir nicht mehr ganz \u2013 aber er hilft dir.",
+      "effects": [
+        "Schatten kann sich unabh\u00e4ngig bewegen (10 ft. von dir entfernt)",
+        "Schatten als Ablenkung: Vorteil auf den n\u00e4chsten Stealth-Wurf",
+        "Andere bemerken manchmal, dass dein Schatten \u201efalsch\u201c liegt"
+      ],
+      "cost": 1,
+      "maxLevel": 1,
+      "requires": [{ "type": "tier", "tier": 0, "count": 1 }],
+      "excludes": ["1-8"],
+      "freeWithAder": false,
+      "gridPos": { "col": 2, "row": 3 }
+    },
+    {
+      "id": "1-4",
+      "name": "Grabstille",
+      "tier": 1,
+      "icon": "1-4.png",
+      "flavor": "Du bist so still wie ein Grab.",
+      "effects": [
+        "Kein Laut beim Bewegen (automatischer Erfolg auf Stealth gegen Ger\u00e4usch-basierte Wahrnehmung)",
+        "Dein Atem ist unh\u00f6rbar"
+      ],
+      "cost": 1,
+      "maxLevel": 1,
+      "requires": [{ "type": "tier", "tier": 0, "count": 1 }],
+      "excludes": [],
+      "freeWithAder": false,
+      "gridPos": { "col": 3, "row": 3 }
+    },
+    {
+      "id": "1-5",
+      "name": "Tiefenk\u00e4lte",
+      "tier": 1,
+      "icon": "1-5.png",
+      "flavor": "Du tr\u00e4gst die K\u00e4lte der tiefen Erde in dir.",
+      "effects": [
+        "Deine Ber\u00fchrung ist sp\u00fcrbar k\u00fchl",
+        "Immunit\u00e4t gegen extreme K\u00e4lte",
+        "1x pro kurze Rast: Ber\u00fchre ein Objekt \u2013 es wird f\u00fcr 1 Minute so kalt, dass Ber\u00fchrung 1W6 K\u00e4lteschaden verursacht"
+      ],
+      "cost": 1,
+      "maxLevel": 1,
+      "requires": [{ "type": "tier", "tier": 0, "count": 1 }],
+      "excludes": [],
+      "freeWithAder": false,
+      "gridPos": { "col": 4, "row": 3 }
+    },
+    {
+      "id": "1-6",
+      "name": "Rissentstehung",
+      "tier": 1,
+      "icon": "1-6.png",
+      "flavor": "Du \u00f6ffnest Risse, wo keine waren.",
+      "effects": [
+        "Aktion: Erzeuge einen Riss in Stein- oder Erdwand (max 1 ft. breit, 3 ft. tief)",
+        "Hindurchsehen oder Hand hindurchstecken m\u00f6glich",
+        "Der Riss schlie\u00dft sich nach 1 Minute",
+        "1x pro kurze Rast"
+      ],
+      "levelEffects": [
+        "Level 2: Bis zu 5 ft. tief",
+        "Level 3: Bis zu 10 ft. tief, du kannst hindurchkriechen"
+      ],
+      "cost": 1,
+      "maxLevel": 3,
+      "requires": [{ "type": "tier", "tier": 0, "count": 1 }],
+      "excludes": [],
+      "freeWithAder": false,
+      "gridPos": { "col": 5, "row": 3 }
+    },
+    {
+      "id": "1-7",
+      "name": "Echos der Verborgenen",
+      "tier": 1,
+      "icon": "1-7.png",
+      "flavor": "Du h\u00f6rst die Geheimnisse, die in der Tiefe gefl\u00fcstert werden.",
+      "effects": [
+        "Jemand in 10 ft. fl\u00fcstert ein Geheimnis \u2013 du h\u00f6rst es automatisch (wenn du die Sprache kennst)",
+        "1x pro lange Rast: H\u00f6re das letzte Geheimnis, das an diesem Ort gefl\u00fcstert wurde"
+      ],
+      "levelEffects": [
+        "Level 2: Reichweite 30 ft.",
+        "Level 3: 30 ft., du verstehst nicht-exotische/geheime Sprachen f\u00fcr diesen Moment"
+      ],
+      "cost": 1,
+      "maxLevel": 3,
+      "requires": [{ "type": "tier", "tier": 0, "count": 1 }],
+      "excludes": [],
+      "freeWithAder": false,
+      "gridPos": { "col": 6, "row": 3 }
+    },
+    {
+      "id": "1-8",
+      "name": "Erdentarnung",
+      "tier": 1,
+      "icon": "1-8.png",
+      "flavor": "Die Erde verbirgt dich.",
+      "effects": [
+        "Aktion: Vergrabe dich im Boden (nur Erde)",
+        "+5 auf Stealth, Dreiviertdeckung",
+        "H\u00f6ren geht normal, Sehen nur in gerader Linie",
+        "Stundenlang so verharren m\u00f6glich",
+        "Auftauchen kostet volle Bewegung"
+      ],
+      "cost": 1,
+      "maxLevel": 1,
+      "requires": [{ "type": "tier", "tier": 0, "count": 1 }],
+      "excludes": ["1-3"],
+      "freeWithAder": false,
+      "gridPos": { "col": 1, "row": 2 }
+    },
+    {
+      "id": "1-9",
+      "name": "Rissangriff",
+      "tier": 1,
+      "icon": "1-9.png",
+      "flavor": "Du schl\u00e4gst aus dem Nichts zu.",
+      "effects": [
+        "Nach mind. 5 ft. Bewegung durch Schatten oder unterirdisch: n\u00e4chster Nahkampfangriff +2W6 Schaden",
+        "Schadenstyp entspricht der Waffe"
+      ],
+      "cost": 1,
+      "maxLevel": 1,
+      "requires": [{ "type": "tier", "tier": 0, "count": 1 }],
+      "excludes": [],
+      "freeWithAder": false,
+      "gridPos": { "col": 5, "row": 2 }
+    },
+    {
+      "id": "1-10",
+      "name": "Tiefeninstinkt",
+      "tier": 1,
+      "icon": "1-10.png",
+      "flavor": "Die Tiefe warnt dich vor Gefahr.",
+      "effects": [
+        "Kannst nicht \u00fcberrascht werden auf nat\u00fcrlichem Boden",
+        "Vorteil auf Initiative-W\u00fcrfe unter der Erde oder in Dunkelheit"
+      ],
+      "cost": 1,
+      "maxLevel": 1,
+      "requires": [{ "type": "tier", "tier": 0, "count": 1 }],
+      "excludes": [],
+      "freeWithAder": false,
+      "gridPos": { "col": 3, "row": 2 }
+    },
+    {
+      "id": "2-1",
+      "name": "Schattenwandler",
+      "tier": 2,
+      "icon": "2-1.png",
+      "flavor": "Du BIST ein Schatten.",
+      "effects": [
+        "Bonusaktion: In eigenen Schatten \u201efallen lassen\u201c",
+        "Im Schatten unsichtbar und k\u00f6rperlos",
+        "Im Schatten mit voller Bewegung bewegen und woanders auftauchen",
+        "1x pro lange Rast",
+        "Geht nur wo Schatten sein kann"
+      ],
+      "cost": 2,
+      "maxLevel": 1,
+      "requires": [
+        { "type": "tier", "tier": 1, "count": 3 },
+        { "type": "skillAnd", "skills": ["1-4", "1-3"] }
+      ],
+      "excludes": ["2-5"],
+      "freeWithAder": false,
+      "gridPos": { "col": 1, "row": 1 }
+    },
+    {
+      "id": "2-2",
+      "name": "Tiefenklinge",
+      "tier": 2,
+      "icon": "2-2.png",
+      "flavor": "Deine Waffe tr\u00e4gt die K\u00e4lte der Tiefe.",
+      "effects": [
+        "Waffe verursacht permanent +1W6 K\u00e4lteschaden",
+        "Kritische Treffer frieren Ziel fest: Bewegung 0 bis Ende seines n\u00e4chsten Zuges",
+        "STR Save DC 14 negiert"
+      ],
+      "levelEffects": [
+        "Level 2: +2W6 K\u00e4lteschaden, Festfrieren auch bei normalen Treffern"
+      ],
+      "cost": 2,
+      "maxLevel": 2,
+      "requires": [
+        { "type": "tier", "tier": 1, "count": 3 },
+        { "type": "skillOr", "skills": ["1-5", "1-9"] }
+      ],
+      "excludes": [],
+      "freeWithAder": false,
+      "gridPos": { "col": 2, "row": 1 }
+    },
+    {
+      "id": "2-3",
+      "name": "Erdverschlinger",
+      "tier": 2,
+      "icon": "2-3.png",
+      "flavor": "Die Erde \u00f6ffnet sich f\u00fcr dich \u2013 und schlie\u00dft sich hinter dir.",
+      "effects": [
+        "Bewegung durch Erde und Stein (20 ft. Bewegung)",
+        "Atmen m\u00f6glich w\u00e4hrend unterirdisch (die Erde gibt dir Luft)",
+        "Kein H\u00f6ren und keine andere Kreaturen sehen m\u00f6glich"
+      ],
+      "cost": 2,
+      "maxLevel": 1,
+      "requires": [
+        { "type": "tier", "tier": 1, "count": 3 },
+        { "type": "skillOr", "skills": ["1-6", "1-8"] }
+      ],
+      "excludes": [],
+      "freeWithAder": false,
+      "gridPos": { "col": 3, "row": 1 }
+    },
+    {
+      "id": "2-4",
+      "name": "Geheimnisw\u00e4chter",
+      "tier": 2,
+      "icon": "2-4.png",
+      "flavor": "Du sammelst Geheimnisse wie andere Gold sammeln.",
+      "effects": [
+        "Geheimnis in Stein speichern \u2013 Kreatur mit Losung kann es absorbieren (Aktion)",
+        "Aktion: Zwinge jemanden, sein gr\u00f6\u00dftes Geheimnis zu offenbaren (WIS DC 8 + PROF + CHA)",
+        "Das Ziel wei\u00df nicht, dass es gezwungen wurde",
+        "1x pro lange Rast"
+      ],
+      "cost": 2,
+      "maxLevel": 1,
+      "requires": [
+        { "type": "tier", "tier": 1, "count": 3 },
+        { "type": "skill", "skill": "1-7" }
+      ],
+      "excludes": [],
+      "freeWithAder": false,
+      "gridPos": { "col": 4, "row": 1 }
+    },
+    {
+      "id": "2-5",
+      "name": "Riss der Realit\u00e4t",
+      "tier": 2,
+      "icon": "2-5.png",
+      "flavor": "Du \u00f6ffnest Risse, die mehr als nur physisch sind.",
+      "effects": [
+        "1x pro lange Rast: \u00d6ffne einen Riss zwischen zwei sichtbaren Punkten (max 100 ft.)",
+        "Der Riss ist ein Portal \u2013 max X Kreaturen k\u00f6nnen hindurchgehen (X = Proficiency)",
+        "Der Riss bleibt f\u00fcr 1 Runde offen",
+        "Special Action zum sofortigen Schlie\u00dfen m\u00f6glich"
+      ],
+      "cost": 2,
+      "maxLevel": 1,
+      "requires": [
+        { "type": "tier", "tier": 1, "count": 3 },
+        { "type": "skill", "skill": "1-6", "minLevel": 2 }
+      ],
+      "excludes": ["2-1"],
+      "freeWithAder": false,
+      "gridPos": { "col": 5, "row": 1 }
+    },
+    {
+      "id": "cap",
+      "name": "Herr des Abgrunds",
+      "tier": 3,
+      "icon": "cap.png",
+      "flavor": "Du bist nicht mehr von dieser Welt. Du bist der Raum ZWISCHEN den Dingen.",
+      "effects": [
+        "Aktion, 1x pro lange Rast, 1 Min Dauer",
+        "Quasi-k\u00f6rperlos \u2013 physische Angriffe m\u00fcssen AC 20 + CON \u00fcberbieten",
+        "Durch ALLES hindurchgehen (Mauern, Kreaturen)",
+        "Kann nicht grappled, festgehalten oder eingesperrt werden",
+        "Angriffe ignorieren R\u00fcstung (treffen gegen Touch AC / 10 + DEX)",
+        "Immun gegen Gelegenheitsangriffe",
+        "Konturen verschwimmen, kein Schatten \u2013 du BIST der Schatten",
+        "Augen sind leere, schwarze L\u00f6cher; Risse bleiben zur\u00fcck"
+      ],
+      "cost": 3,
+      "maxLevel": 1,
+      "requires": [{ "type": "tier", "tier": 2, "count": 2 }],
+      "excludes": [],
+      "freeWithAder": false,
+      "gridPos": { "col": 3, "row": 0 }
+    }
+  ]
+}

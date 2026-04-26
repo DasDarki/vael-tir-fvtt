@@ -1,0 +1,313 @@
+@use "sass:color";
+@use "variables" as *;
+
+// ── App Container ──
+
+.erdgebunden {
+  background: $bg-dark;
+  color: $text-primary;
+  font-family: "Signika", sans-serif;
+  height: 100%;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  font-size: 0.95rem;
+}
+
+// ── Shared Header ──
+
+.erdgebunden-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 16px;
+  background: $bg-panel;
+  border-bottom: 1px solid rgba($gold-dark, 0.3);
+  flex-shrink: 0;
+
+  h2 {
+    margin: 0;
+    font-size: 1.2rem;
+    color: $gold-light;
+    flex-shrink: 0;
+  }
+
+  .ader-subtitle {
+    font-size: 0.9rem;
+    color: $text-muted;
+    font-style: italic;
+  }
+
+  .header-info {
+    display: flex;
+    gap: 12px;
+    margin-left: auto;
+    align-items: center;
+    font-size: 0.85rem;
+
+    .ahnensteine-count { color: $gold; }
+    .invested-count { color: $text-secondary; }
+    .total-unlocked { color: $green; }
+    .ader-inactive-badge {
+      color: $red;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+  }
+
+  .header-nav {
+    display: flex;
+    gap: 6px;
+  }
+}
+
+.nav-btn {
+  background: $bg-panel-light;
+  border: 1px solid rgba($text-muted, 0.3);
+  color: $text-secondary;
+  padding: 5px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.8rem;
+  transition: all $transition-fast;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+
+  &:hover {
+    background: $bg-hover;
+    color: $text-primary;
+  }
+
+  &.active {
+    border-color: $green;
+    color: $green;
+  }
+}
+
+// ── Main View ──
+
+.erdgebunden-main {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+
+  .main-tree {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    padding: 20px;
+    overflow-y: auto;
+  }
+
+  .base-skills {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .base-connector, .base-to-adern-connector {
+    color: $text-muted;
+    font-size: 1.1rem;
+  }
+
+  .ader-nodes {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    max-width: 540px;
+    width: 100%;
+  }
+
+  .ader-node {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    padding: 12px;
+    border-radius: $border-radius;
+    background: $bg-panel;
+    border: 1px solid rgba($text-muted, 0.2);
+    transition: all $transition-normal;
+
+    &:hover {
+      background: $bg-panel-light;
+      border-color: rgba($text-muted, 0.4);
+    }
+
+    &.ader-active {
+      border-color: $gold;
+      background: linear-gradient(135deg, $bg-panel, rgba($gold-dark, 0.15));
+      box-shadow: 0 0 12px rgba($gold, 0.25), inset 0 0 8px rgba($gold, 0.05);
+
+      .ader-node-name { color: $gold-light; }
+    }
+
+    .ader-node-icon {
+      width: 56px;
+      height: 56px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      background-color: $bg-dark;
+      background-size: cover;
+      background-position: center;
+      border: 2px solid $text-muted;
+      cursor: pointer;
+      transition: all $transition-fast;
+
+      &:hover {
+        border-color: $gold;
+        transform: scale(1.1);
+      }
+    }
+
+    &.ader-active .ader-node-icon {
+      border-color: $gold;
+      box-shadow: 0 0 8px rgba($gold, 0.4);
+    }
+
+    // Inactive ader without erdgebunden: dim
+    &:not(.ader-active) {
+      opacity: 0.6;
+
+      &:hover { opacity: 0.85; }
+    }
+
+    .ader-node-name {
+      font-size: 0.9rem;
+      font-weight: bold;
+    }
+
+    .ader-node-progress {
+      font-size: 0.8rem;
+      color: $gold;
+    }
+
+    .ader-activate-btn {
+      background: linear-gradient(135deg, $green-dim, color.adjust($green, $lightness: -10%));
+      color: white;
+      border: 1px solid $green;
+      border-radius: 4px;
+      padding: 4px 12px;
+      font-size: 0.75rem;
+      cursor: pointer;
+      transition: all $transition-fast;
+
+      &:hover {
+        background: $green;
+        box-shadow: $shadow-glow-green;
+      }
+    }
+  }
+}
+
+// ── Ader View ──
+
+.erdgebunden-ader {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+// ── Summary View ──
+
+.erdgebunden-summary {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+
+  .summary-list {
+    flex: 1;
+    min-height: 0;
+    overflow-y: auto;
+    padding: 16px;
+  }
+
+  .summary-section {
+    margin-bottom: 20px;
+
+    .summary-section-title {
+      font-size: 1rem;
+      color: $gold;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      border-bottom: 1px solid rgba($gold-dark, 0.3);
+      padding-bottom: 4px;
+      margin: 0 0 10px;
+    }
+  }
+
+  .summary-skills {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .summary-skill {
+    background: $bg-panel;
+    border: 1px solid rgba($text-muted, 0.15);
+    border-radius: $border-radius;
+    padding: 10px 14px;
+
+    .summary-skill-header {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 4px;
+    }
+
+    .summary-skill-name {
+      font-weight: bold;
+      color: $gold-light;
+      font-size: 0.95rem;
+    }
+
+    .summary-skill-level {
+      font-size: 0.8rem;
+      color: $blue;
+      background: rgba($blue, 0.1);
+      padding: 1px 6px;
+      border-radius: 3px;
+    }
+
+    .summary-skill-tier {
+      font-size: 0.75rem;
+      color: $text-muted;
+      margin-left: auto;
+    }
+
+    .summary-skill-flavor {
+      font-size: 0.85rem;
+      color: $text-secondary;
+      margin: 0 0 6px;
+    }
+
+    .summary-skill-effects {
+      margin: 0;
+      padding-left: 16px;
+      list-style: disc;
+
+      li {
+        font-size: 0.85rem;
+        line-height: 1.3;
+        color: $text-primary;
+      }
+    }
+  }
+
+  .summary-empty {
+    color: $text-muted;
+    font-style: italic;
+    font-size: 0.9rem;
+  }
+}

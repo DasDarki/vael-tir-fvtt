@@ -1,0 +1,234 @@
+@use "sass:color";
+@use "variables" as *;
+
+// ── Capstone Pulse Animation ──
+
+@keyframes capstone-pulse {
+  0%, 100% { box-shadow: 0 0 12px rgba($gold, 0.3), 0 0 24px rgba($gold, 0.1); }
+  50% { box-shadow: 0 0 20px rgba($gold, 0.6), 0 0 40px rgba($gold, 0.25); }
+}
+
+@keyframes capstone-pulse-locked {
+  0%, 100% { box-shadow: 0 0 8px rgba($text-muted, 0.15), 0 0 16px rgba($text-muted, 0.05); }
+  50% { box-shadow: 0 0 14px rgba($text-muted, 0.3), 0 0 28px rgba($text-muted, 0.1); }
+}
+
+@keyframes capstone-pulse-available {
+  0%, 100% { box-shadow: 0 0 10px rgba($green, 0.2), 0 0 20px rgba($green, 0.08); }
+  50% { box-shadow: 0 0 18px rgba($green, 0.45), 0 0 36px rgba($green, 0.15); }
+}
+
+.skill-node {
+  width: $node-size + 4px;
+  height: $node-size + 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  border: 2px solid $text-muted;
+  background: rgba($bg-panel, 0.9);
+  cursor: pointer;
+  transition: all $transition-normal;
+  position: relative;
+
+  &:hover {
+    transform: scale(1.06);
+    z-index: 10;
+  }
+
+  .skill-node-inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    text-align: center;
+    padding: 6px 4px;
+  }
+
+  img.skill-node-icon {
+    width: $node-icon-size;
+    height: $node-icon-size;
+    border-radius: 6px;
+    object-fit: cover;
+    pointer-events: none;
+    transition: filter $transition-normal;
+  }
+
+  .skill-node-name {
+    font-size: 0.65rem;
+    line-height: 1.2;
+    max-width: $node-size - 4px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8);
+    transition: color $transition-normal, text-shadow $transition-normal;
+  }
+
+  // ── Level Badge (top-right, for multi-level skills) ──
+
+  .skill-node-badge {
+    position: absolute;
+    top: -4px;
+    right: -4px;
+    background: $bg-panel-light;
+    border: 1px solid $text-muted;
+    border-radius: 6px;
+    padding: 1px 5px;
+    font-size: 0.55rem;
+    font-weight: bold;
+    color: $text-secondary;
+    z-index: 3;
+    line-height: 1.2;
+  }
+
+  // ── State: Unlocked ──
+
+  &.state-unlocked {
+    border-color: $gold;
+    background: linear-gradient(135deg, $bg-panel-light, color.adjust($gold-dark, $lightness: -10%));
+    box-shadow: $shadow-glow-gold, inset 0 0 12px rgba($gold, 0.08);
+
+    img.skill-node-icon { filter: brightness(1.15) saturate(1.15); }
+    .skill-node-name { color: $gold-light; font-weight: bold; text-shadow: 0 0 6px rgba($gold, 0.3); }
+
+    .skill-node-badge {
+      background: rgba($gold-dark, 0.7);
+      border-color: $gold;
+      color: $gold-light;
+    }
+
+    &:hover {
+      box-shadow: 0 0 16px rgba($gold, 0.6), 0 0 32px rgba($gold, 0.2);
+    }
+  }
+
+  // ── State: Available (can unlock) ──
+
+  &.state-available {
+    border-color: $green;
+    border-style: dashed;
+    background: rgba($bg-panel-light, 0.95);
+    box-shadow: 0 0 6px rgba($green, 0.2);
+
+    img.skill-node-icon { filter: brightness(0.85) saturate(0.75); }
+    .skill-node-name { color: $green; }
+
+    .skill-node-badge {
+      border-color: $green-dim;
+      color: $green;
+    }
+
+    &:hover {
+      border-style: solid;
+      box-shadow: $shadow-glow-green, 0 0 20px rgba($green, 0.15);
+      img.skill-node-icon { filter: brightness(1.05) saturate(1); }
+      .skill-node-name { color: $text-primary; text-shadow: 0 0 8px rgba($green, 0.5); }
+    }
+  }
+
+  // ── State: Locked (prerequisites not met) ──
+
+  &.state-locked {
+    border-color: rgba($text-muted, 0.3);
+    background: rgba($bg-dark, 0.85);
+    opacity: 0.55;
+
+    img.skill-node-icon { filter: grayscale(1) brightness(0.4); }
+    .skill-node-name { color: $text-muted; }
+
+    .skill-node-badge {
+      opacity: 0.4;
+    }
+
+    &:hover {
+      opacity: 0.85;
+      img.skill-node-icon { filter: grayscale(0.4) brightness(0.7) saturate(0.6); }
+      .skill-node-name { color: $text-secondary; text-shadow: 0 0 6px rgba($text-secondary, 0.4); }
+    }
+  }
+
+  // ── State: Excluded (blocked by another skill) ──
+
+  &.state-excluded {
+    border-color: $red-dim;
+    background: rgba($bg-dark, 0.8);
+    opacity: 0.45;
+
+    img.skill-node-icon { filter: grayscale(0.8) brightness(0.3) sepia(0.3); }
+    .skill-node-name { color: $red-dim; }
+
+    .skill-node-badge {
+      opacity: 0.3;
+      border-color: $red-dim;
+    }
+
+    // X overlay to indicate exclusion
+    &::after {
+      content: "\f00d"; // fa-times
+      font-family: "Font Awesome 5 Free";
+      font-weight: 900;
+      position: absolute;
+      top: 2px;
+      left: 6px;
+      font-size: 0.6rem;
+      color: $red;
+      opacity: 0.7;
+    }
+
+    &:hover {
+      opacity: 0.75;
+      img.skill-node-icon { filter: grayscale(0.5) brightness(0.55) sepia(0.2); }
+      .skill-node-name { color: $red; text-shadow: 0 0 6px rgba($red, 0.3); }
+    }
+  }
+
+  // ── Tier Variants ──
+
+  &.skill-node--base {
+    width: $node-size + 20px;
+    height: $node-size + 24px;
+    border-radius: 12px;
+
+    img.skill-node-icon { width: $node-icon-size + 12px; height: $node-icon-size + 12px; border-radius: 8px; }
+    .skill-node-name { font-size: 0.8rem; max-width: $node-size + 8px; }
+  }
+
+  // ── Capstone (Tier 3) ──
+
+  &.skill-node--tier3 {
+    width: $node-size + 16px;
+    height: $node-size + 24px;
+    border-width: 3px;
+    border-radius: 14px;
+
+    img.skill-node-icon { width: $node-icon-size + 8px; height: $node-icon-size + 8px; border-radius: 8px; }
+    .skill-node-name { font-size: 0.75rem; font-weight: bold; }
+
+    // Unlocked capstone: epic gold glow
+    &.state-unlocked {
+      border-color: $gold-light;
+      background: linear-gradient(135deg, color.adjust($gold-dark, $lightness: -10%), $bg-panel-light, color.adjust($gold-dark, $lightness: -10%));
+      animation: capstone-pulse 3s ease-in-out infinite;
+
+      .skill-node-name { color: $gold-light; text-shadow: 0 0 10px rgba($gold, 0.5); }
+    }
+
+    // Locked capstone: subtle grey pulse
+    &.state-locked {
+      border-color: rgba($text-muted, 0.5);
+      opacity: 0.65;
+      animation: capstone-pulse-locked 4s ease-in-out infinite;
+
+      img.skill-node-icon { filter: grayscale(0.8) brightness(0.5); }
+    }
+
+    // Available capstone: green pulse
+    &.state-available {
+      border-style: solid;
+      border-color: $green;
+      animation: capstone-pulse-available 3s ease-in-out infinite;
+    }
+  }
+}

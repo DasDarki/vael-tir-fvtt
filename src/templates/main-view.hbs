@@ -1,0 +1,63 @@
+<div class="erdgebunden-main">
+  <div class="erdgebunden-header">
+    <h2>Erdgebunden – {{actorName}}</h2>
+    <div class="header-info">
+      <span class="ahnensteine-count" title="Verfügbare Ahnensteine">
+        <i class="fas fa-gem"></i> {{ahnensteine}} Ahnenstein(e)
+      </span>
+      <span class="invested-count" title="Investierte Ahnensteine">
+        <i class="fas fa-coins"></i> {{invested}} investiert
+      </span>
+    </div>
+    <div class="header-nav">
+      {{#if isGM}}
+        <button type="button" class="nav-btn {{#if activated}}active{{/if}}" data-action="activate-actor">
+          <i class="fas fa-{{#if activated}}check-circle{{else}}circle{{/if}}"></i>
+          {{#if activated}}Aktiviert{{else}}Aktivieren (GM){{/if}}
+        </button>
+      {{/if}}
+      <button type="button" class="nav-btn" data-action="nav-summary">
+        <i class="fas fa-list"></i> Übersicht
+      </button>
+    </div>
+  </div>
+
+  <div class="main-tree">
+    {{!-- Base Skills --}}
+    <div class="base-skills">
+      {{#each baseSkills}}
+        <div class="skill-node skill-node--base state-{{this.state}}" data-skill-key="{{this.key}}" data-skill-id="{{this.id}}">
+          <img class="skill-node-icon" src="{{this.iconUrl}}" alt="{{this.name}}" />
+          <div class="skill-node-name">{{this.name}}</div>
+          {{#if (eq this.state "unlocked")}}
+            <div class="skill-node-level">{{this.level}}/{{this.maxLevel}}</div>
+          {{/if}}
+        </div>
+        {{#unless @last}}
+          <div class="base-connector">
+            <i class="fas fa-arrow-down"></i>
+          </div>
+        {{/unless}}
+      {{/each}}
+    </div>
+
+    {{!-- Ader Connection --}}
+    {{#if hasErdgebunden}}
+      <div class="base-to-adern-connector">
+        <i class="fas fa-arrow-down"></i>
+      </div>
+
+      {{!-- Ader Nodes --}}
+      <div class="ader-nodes">
+        {{#each aderNodes}}
+          <div class="ader-node {{#if this.isActive}}ader-active{{/if}}" data-action="open-ader" data-ader-id="{{this.id}}">
+            <div class="ader-node-icon" style="background-image: url('{{this.bgUrl}}');">
+            </div>
+            <div class="ader-node-name">{{this.name}}</div>
+            <div class="ader-node-progress">{{this.unlockedCount}}/{{this.totalCount}}</div>
+          </div>
+        {{/each}}
+      </div>
+    {{/if}}
+  </div>
+</div>

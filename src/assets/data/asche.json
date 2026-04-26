@@ -1,0 +1,383 @@
+{
+  "id": "asche",
+  "name": "Asche",
+  "fullName": "Ader der Asche",
+  "subtitle": "Der Vulkan",
+  "folder": "4_Asche",
+  "gridCols": 7,
+  "gridRows": 6,
+  "connections": [
+    ["0-A", "1-1"], ["0-A", "1-2"], ["0-A", "1-3"],
+    ["0-B", "1-4"], ["0-B", "1-5"], ["0-B", "1-6"],
+    ["0-A", "1-7"], ["0-B", "1-8"],
+    ["0-A", "1-9"], ["0-B", "1-10"],
+    ["1-1", "2-1"], ["1-6", "2-1"],
+    ["1-2", "2-2"],
+    ["1-3", "2-3"], ["1-5", "2-3"],
+    ["1-8", "2-4"],
+    ["1-2", "2-5"], ["1-4", "2-5"],
+    ["2-1", "cap"], ["2-2", "cap"], ["2-3", "cap"], ["2-4", "cap"], ["2-5", "cap"]
+  ],
+  "skills": [
+    {
+      "id": "0-A",
+      "name": "Aschenblut",
+      "tier": 0,
+      "icon": "0-A.png",
+      "flavor": "Das Feuer der Erde brennt in deinen Adern.",
+      "effects": [
+        "Resistenz gegen Feuerschaden",
+        "Immun gegen Schaden durch normale Flammen (Lagerfeuer, Fackeln)",
+        "Dein Blut ist spürbar wärmer – manche sagen, es dampft leicht"
+      ],
+      "cost": 1,
+      "maxLevel": 1,
+      "requires": [],
+      "excludes": [],
+      "freeWithAder": false,
+      "gridPos": { "col": 2, "row": 4 }
+    },
+    {
+      "id": "0-B",
+      "name": "Schwelender Zorn",
+      "tier": 0,
+      "icon": "0-B.png",
+      "flavor": "Deine Wut nährt sich von deinem Schmerz.",
+      "effects": [
+        "Bei ≤50% TP: Deine Angriffe verursachen +2 Schaden",
+        "Dieser Bonus ist von keinem Schadenstyp – er ist einfach MEHR"
+      ],
+      "cost": 1,
+      "maxLevel": 1,
+      "requires": [],
+      "excludes": [],
+      "freeWithAder": false,
+      "gridPos": { "col": 4, "row": 4 }
+    },
+    {
+      "id": "1-1",
+      "name": "Aschenklinge",
+      "tier": 1,
+      "icon": "1-1.png",
+      "flavor": "Deine Waffe trägt die Hitze der Erde.",
+      "effects": [
+        "Deine Waffenangriffe verursachen zusätzlich 1W4 Feuerschaden",
+        "Die Waffe glüht leicht im Dunkeln (5 ft. schwaches Licht)"
+      ],
+      "levelEffects": [
+        "Level 2: 1W6 Feuerschaden",
+        "Level 3: 1W8 Feuerschaden, bei kritischen Treffern fängt das Ziel Feuer (1W6 pro Runde bis gelöscht)"
+      ],
+      "cost": 1,
+      "maxLevel": 3,
+      "requires": [{ "type": "tier", "tier": 0, "count": 1 }],
+      "excludes": [],
+      "freeWithAder": false,
+      "gridPos": { "col": 0, "row": 3 }
+    },
+    {
+      "id": "1-2",
+      "name": "Erdenbeben",
+      "tier": 1,
+      "icon": "1-2.png",
+      "flavor": "Du schlägst auf den Boden und die Welt zittert.",
+      "effects": [
+        "Aktion: Schlage auf den Boden. Alle Kreaturen in 15 ft. DEX-Rettungswurf (DC 8 + CON + Proficiency) oder fallen zu Boden und erleiden 2W6 Wuchtschaden",
+        "1x pro kurze Rast"
+      ],
+      "levelEffects": [
+        "Level 2: 20 ft. Radius, 3W6 Schaden",
+        "Level 3: 30 ft. Radius, 4W6 Schaden, schwieriges Terrain für 1 Minute"
+      ],
+      "cost": 1,
+      "maxLevel": 3,
+      "requires": [{ "type": "tier", "tier": 0, "count": 1 }],
+      "excludes": [],
+      "freeWithAder": false,
+      "gridPos": { "col": 1, "row": 3 }
+    },
+    {
+      "id": "1-3",
+      "name": "Aschewolke",
+      "tier": 1,
+      "icon": "1-3.png",
+      "flavor": "Du atmest den Zorn der Erde aus.",
+      "effects": [
+        "Aktion: Atme eine Wolke aus heißer Asche (15 ft. Kegel)",
+        "Alle Kreaturen im Kegel: CON-Rettungswurf oder 2W6 Feuerschaden und Blind bis Ende ihres nächsten Zuges",
+        "Erfolg: Halber Schaden, nicht Blind",
+        "1x pro kurze Rast"
+      ],
+      "cost": 1,
+      "maxLevel": 1,
+      "requires": [{ "type": "tier", "tier": 0, "count": 1 }],
+      "excludes": [],
+      "freeWithAder": false,
+      "gridPos": { "col": 2, "row": 3 }
+    },
+    {
+      "id": "1-4",
+      "name": "Magmahaut",
+      "tier": 1,
+      "icon": "1-4.png",
+      "flavor": "Deine Haut wird so heiß wie geschmolzener Stein.",
+      "effects": [
+        "Bonusaktion: Aktiviere für 1 Minute",
+        "Kreaturen, die dich mit Nahkampfangriff treffen, erleiden 1W6 Feuerschaden",
+        "Vorteil auf Einschüchterung (Haut glüht und knistert)",
+        "2x pro lange Rast"
+      ],
+      "levelEffects": [
+        "Level 2: 2W6 Schaden",
+        "Level 3: 3W8 Schaden"
+      ],
+      "cost": 1,
+      "maxLevel": 3,
+      "requires": [{ "type": "tier", "tier": 0, "count": 1 }],
+      "excludes": [],
+      "freeWithAder": false,
+      "gridPos": { "col": 3, "row": 3 }
+    },
+    {
+      "id": "1-5",
+      "name": "Vergeltung der Erde",
+      "tier": 1,
+      "icon": "1-5.png",
+      "flavor": "Für jeden Schlag, den du erleidest, schlägt die Erde zurück.",
+      "effects": [
+        "Reaktion: Bei Nahkampftreffer gegen dich, verursache automatisch 1W8 + STR-Mod Feuerschaden an den Angreifer",
+        "3x pro lange Rast"
+      ],
+      "levelEffects": [
+        "Level 2: 2W8 + STR-Mod",
+        "Level 3: 3W8 + STR-Mod, funktioniert auch bei Fernangriffen von innerhalb 30 ft."
+      ],
+      "cost": 1,
+      "maxLevel": 3,
+      "requires": [{ "type": "tier", "tier": 0, "count": 1 }],
+      "excludes": [],
+      "freeWithAder": false,
+      "gridPos": { "col": 4, "row": 3 }
+    },
+    {
+      "id": "1-6",
+      "name": "Narben des Landes",
+      "tier": 1,
+      "icon": "1-6.png",
+      "flavor": "Du trägst die Wunden der Erde – und sie machen dich stärker.",
+      "effects": [
+        "Für jede physische Narbe (DM-Ermessen): +1 auf Schadenswürfe",
+        "Neue Narben nach dramatischen Kämpfen können den Bonus erhöhen (max +5)"
+      ],
+      "cost": 1,
+      "maxLevel": 1,
+      "requires": [{ "type": "tier", "tier": 0, "count": 1 }],
+      "excludes": [],
+      "freeWithAder": false,
+      "gridPos": { "col": 5, "row": 3 }
+    },
+    {
+      "id": "1-7",
+      "name": "Aschentritt",
+      "tier": 1,
+      "icon": "1-7.png",
+      "flavor": "Du gehst durch Feuer wie andere durch Gras.",
+      "effects": [
+        "Immunität gegen Feuerschaden durch Umgebung (brennende Gebäude, Flammenwände etc.)",
+        "Du kannst über heiße Kohlen, durch Flammenwände und über glühende Metalle gehen",
+        "Deine Fußspuren hinterlassen kurz Verbrennungsspuren"
+      ],
+      "cost": 1,
+      "maxLevel": 1,
+      "requires": [{ "type": "tier", "tier": 0, "count": 1 }],
+      "excludes": [],
+      "freeWithAder": false,
+      "gridPos": { "col": 6, "row": 3 }
+    },
+    {
+      "id": "1-8",
+      "name": "Zornige Erde",
+      "tier": 1,
+      "icon": "1-8.png",
+      "flavor": "Deine Wut ruft die Erde zur Hilfe.",
+      "effects": [
+        "Wenn du wütend bist (Kampf, Bedrohung von Verbündeten): Kleine Beben in 10 ft., lose Gegenstände klappern, 19 zählt als Crit",
+        "1x pro lange Rast als Aktion: SCHREI – alle Feinde in 30 ft. WIS-Rettungswurf (DC 8 + CHA + Prof) oder Verängstigt für 1 Minute"
+      ],
+      "cost": 1,
+      "maxLevel": 1,
+      "requires": [{ "type": "tier", "tier": 0, "count": 1 }],
+      "excludes": [],
+      "freeWithAder": false,
+      "gridPos": { "col": 1, "row": 2 }
+    },
+    {
+      "id": "1-9",
+      "name": "Feuerimmunität",
+      "tier": 1,
+      "icon": "1-9.png",
+      "flavor": "Das Feuer kann dir nichts mehr anhaben.",
+      "effects": [
+        "Upgrade von Resistenz zu Immunität gegen Feuerschaden",
+        "Du kannst brennende Gegenstände aufheben ohne Schaden",
+        "Du kannst in Flammen schlafen"
+      ],
+      "cost": 1,
+      "maxLevel": 1,
+      "requires": [{ "type": "tier", "tier": 0, "count": 1 }],
+      "excludes": [],
+      "freeWithAder": false,
+      "gridPos": { "col": 5, "row": 2 }
+    },
+    {
+      "id": "1-10",
+      "name": "Seismischer Sinn",
+      "tier": 1,
+      "icon": "1-10.png",
+      "flavor": "Du spürst jeden Schritt, jede Bewegung.",
+      "effects": [
+        "Tremorsense 30 ft.",
+        "Spüre verborgene Kreaturen und Fallen, die den Boden berühren",
+        "Vorteil auf Initiative wenn du auf dem Boden stehst"
+      ],
+      "cost": 1,
+      "maxLevel": 1,
+      "requires": [{ "type": "tier", "tier": 0, "count": 1 }],
+      "excludes": [],
+      "freeWithAder": false,
+      "gridPos": { "col": 3, "row": 2 }
+    },
+    {
+      "id": "2-1",
+      "name": "Lavablut",
+      "tier": 2,
+      "icon": "2-1.png",
+      "flavor": "Dein Blut ist flüssiges Feuer.",
+      "effects": [
+        "Bei Verwundung (Stich-/Hiebschaden): Blut sprüht, alle Kreaturen in 5 ft. erleiden 1W6 Feuerschaden",
+        "Automatisch, keine Aktion nötig",
+        "Dein Blut kann als Feuerquelle verwendet werden (entzündet Brennbares)"
+      ],
+      "levelEffects": [
+        "Level 2: 10 ft. Radius, 2W6 Feuerschaden"
+      ],
+      "cost": 2,
+      "maxLevel": 2,
+      "requires": [
+        { "type": "tier", "tier": 1, "count": 3 },
+        { "type": "skillOr", "skills": ["1-1", "1-6"] }
+      ],
+      "excludes": [],
+      "freeWithAder": false,
+      "gridPos": { "col": 1, "row": 1 }
+    },
+    {
+      "id": "2-2",
+      "name": "Erdenstoß",
+      "tier": 2,
+      "icon": "2-2.png",
+      "flavor": "Ein einziger Schlag erschüttert die Welt.",
+      "effects": [
+        "Aktion: Führe einen Nahkampfangriff aus",
+        "Bei Treffer: Normaler Schaden + 4W10 Wuchtschaden + Ziel fliegt 20 ft. zurück",
+        "Bei Verfehlung: 2W10 Wuchtschaden im 10 ft. Radius um dein Ziel",
+        "1x pro lange Rast"
+      ],
+      "cost": 2,
+      "maxLevel": 1,
+      "requires": [
+        { "type": "tier", "tier": 1, "count": 3 },
+        { "type": "skill", "skill": "1-2" }
+      ],
+      "excludes": ["2-5"],
+      "freeWithAder": false,
+      "gridPos": { "col": 2, "row": 1 }
+    },
+    {
+      "id": "2-3",
+      "name": "Aschephönix",
+      "tier": 2,
+      "icon": "2-3.png",
+      "flavor": "Aus der Asche steigst du wieder auf.",
+      "effects": [
+        "1x pro lange Rast: Bei 0 TP explodiere in Flammen",
+        "Alle Kreaturen in 15 ft.: 4W6 Feuerschaden (DEX DC 14 halbiert)",
+        "Du stehst mit 1W10 + CON-Mod TP wieder auf"
+      ],
+      "cost": 2,
+      "maxLevel": 1,
+      "requires": [
+        { "type": "tier", "tier": 1, "count": 3 },
+        { "type": "skillOr", "skills": ["1-3", "1-5"] }
+      ],
+      "excludes": [],
+      "freeWithAder": false,
+      "gridPos": { "col": 3, "row": 1 }
+    },
+    {
+      "id": "2-4",
+      "name": "Vulkanischer Wille",
+      "tier": 2,
+      "icon": "2-4.png",
+      "flavor": "Dein Zorn macht dich unaufhaltbar.",
+      "effects": [
+        "Bei ≤25% TP: +2 auf alle Angriffswürfe, +1W6 auf allen Schadenswürfen",
+        "Resistenz gegen ALLEN Schaden außer Psychisch",
+        "Endet wenn du über 25% geheilt wirst"
+      ],
+      "cost": 2,
+      "maxLevel": 1,
+      "requires": [
+        { "type": "tier", "tier": 1, "count": 3 },
+        { "type": "skill", "skill": "1-8" }
+      ],
+      "excludes": [],
+      "freeWithAder": false,
+      "gridPos": { "col": 4, "row": 1 }
+    },
+    {
+      "id": "2-5",
+      "name": "Erdbeben",
+      "tier": 2,
+      "icon": "2-5.png",
+      "flavor": "Die Erde selbst ist deine Waffe.",
+      "effects": [
+        "Aktion: Wähle einen Punkt in 100 ft. Sicht, 30 ft. Radius",
+        "Alle Kreaturen: DEX-Rettungswurf DC 15 oder 6W6 Wuchtschaden und zu Boden",
+        "Erfolg: Halber Schaden, nicht zu Boden",
+        "Strukturen erleiden massiven Schaden (DM-Ermessen), Gebiet wird schwieriges Terrain",
+        "1x pro lange Rast"
+      ],
+      "cost": 2,
+      "maxLevel": 1,
+      "requires": [
+        { "type": "tier", "tier": 1, "count": 3 },
+        { "type": "skillOr", "skills": ["1-2", "1-4"] }
+      ],
+      "excludes": ["2-2"],
+      "freeWithAder": false,
+      "gridPos": { "col": 5, "row": 1 }
+    },
+    {
+      "id": "cap",
+      "name": "Eruption",
+      "tier": 3,
+      "icon": "cap.png",
+      "flavor": "Du BIST der Vulkan. Und der Vulkan erwacht.",
+      "effects": [
+        "Aktion, 1x pro WOCHE, Dauer: 1 Minute",
+        "Körper wird zu lebender Lava – Größenkategorie +1",
+        "Immunität gegen Feuer, Kälte, Gift, Wucht",
+        "Aura der Hitze (30 ft.): Kreaturen die Zug dort beginnen erleiden 3W6 Feuerschaden, Brennbares entzündet sich",
+        "Angriffe: +3W6 Feuerschaden, Ziele fangen Feuer (2W6 pro Runde bis gelöscht)",
+        "Einmal während Transformation: Große Eruption – 60 ft. Radius, 8W6 Feuer + 8W6 Wucht (DEX DC 17 halbiert), alles zerstört oder schwer beschädigt"
+      ],
+      "cost": 3,
+      "maxLevel": 1,
+      "requires": [{ "type": "tier", "tier": 2, "count": 2 }],
+      "excludes": [],
+      "freeWithAder": false,
+      "gridPos": { "col": 3, "row": 0 }
+    }
+  ]
+}

@@ -1,0 +1,50 @@
+<div class="erdgebunden-summary">
+  <div class="erdgebunden-header">
+    <button type="button" class="nav-btn" data-action="nav-main">
+      <i class="fas fa-arrow-left"></i> Zurück
+    </button>
+    <h2>Freigeschaltete Skills</h2>
+    <div class="header-info">
+      <span class="ahnensteine-count">
+        <i class="fas fa-gem"></i> {{ahnensteine}}
+      </span>
+      <span class="invested-count">
+        <i class="fas fa-coins"></i> {{invested}} investiert
+      </span>
+      <span class="total-unlocked">
+        <i class="fas fa-star"></i> {{totalUnlocked}} Skills
+      </span>
+    </div>
+  </div>
+
+  <div class="summary-list">
+    {{#each sections}}
+      <div class="summary-section">
+        <h3 class="summary-section-title">{{this.label}}</h3>
+        {{#if this.skills.length}}
+          <div class="summary-skills">
+            {{#each this.skills}}
+              <div class="summary-skill" data-skill-key="{{this.key}}">
+                <div class="summary-skill-header">
+                  <span class="summary-skill-name">{{this.skill.name}}</span>
+                  {{#if (gt this.skill.maxLevel 1)}}
+                    <span class="summary-skill-level">Level {{this.level}}/{{this.skill.maxLevel}}</span>
+                  {{/if}}
+                  <span class="summary-skill-tier">Tier {{this.skill.tier}}</span>
+                </div>
+                <p class="summary-skill-flavor"><em>{{this.skill.flavor}}</em></p>
+                <ul class="summary-skill-effects">
+                  {{#each this.skill.effects}}
+                    <li>{{this}}</li>
+                  {{/each}}
+                </ul>
+              </div>
+            {{/each}}
+          </div>
+        {{else}}
+          <p class="summary-empty">Keine Skills freigeschaltet</p>
+        {{/if}}
+      </div>
+    {{/each}}
+  </div>
+</div>

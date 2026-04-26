@@ -1,0 +1,50 @@
+@use "variables" as *;
+
+.skill-grid-container {
+  position: relative;
+  flex: 1;
+  overflow: auto;
+  padding: 20px;
+}
+
+// Background image + dark overlay
+.ader-bg {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  z-index: 0;
+}
+
+.ader-bg-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.82);
+  z-index: 1;
+}
+
+.skill-grid {
+  display: grid;
+  gap: $grid-gap;
+  position: relative;
+  z-index: 2;
+  padding: 10px;
+  min-height: 100%;
+  align-items: center;
+  justify-items: center;
+}
+
+.tier-label {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: $text-muted;
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  transform: rotate(180deg);
+  justify-self: center;
+  opacity: 0.6;
+  white-space: nowrap;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8);
+}
