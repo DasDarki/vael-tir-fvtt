@@ -23,7 +23,7 @@
       "id": "0-A",
       "name": "Steinherz",
       "tier": 0,
-      "icon": "0-A.png",
+      "icon": "0-A.webp",
       "flavor": "Dein Herz schlägt im Rhythmus der Erde – langsam, beständig, unerschütterlich.",
       "effects": [
         "Vorteil auf Rettungswürfe gegen Verängstigt",
@@ -41,7 +41,7 @@
       "id": "0-B",
       "name": "Standhaft",
       "tier": 0,
-      "icon": "0-B.png",
+      "icon": "0-B.webp",
       "flavor": "Du stehst, wo andere fallen.",
       "effects": [
         "+1 AC wenn letzte Runde ≤10 ft. Bewegung",
@@ -58,7 +58,7 @@
       "id": "1-1",
       "name": "Erdgespür",
       "tier": 1,
-      "icon": "1-1.png",
+      "icon": "1-1.webp",
       "flavor": "Du spürst, was den Boden berührt.",
       "effects": [
         "Aktion (1 Min): Spüre alle nicht verborgenen Kreaturen in 30 ft. auf dem Boden",
@@ -80,7 +80,7 @@
       "id": "1-2",
       "name": "Steinerner Wille",
       "tier": 1,
-      "icon": "1-2.png",
+      "icon": "1-2.webp",
       "flavor": "Dein Geist ist wie Granit.",
       "effects": [
         "Resistenz gegen Psychischen Schaden",
@@ -97,7 +97,7 @@
       "id": "1-3",
       "name": "Erdanker",
       "tier": 1,
-      "icon": "1-3.png",
+      "icon": "1-3.webp",
       "flavor": "Du bist verwurzelt.",
       "effects": [
         "Kann nicht gegen Willen bewegt werden (magisch oder physisch)",
@@ -114,7 +114,7 @@
       "id": "1-4",
       "name": "Geduldiger Fels",
       "tier": 1,
-      "icon": "1-4.png",
+      "icon": "1-4.webp",
       "flavor": "Der Berg wartet. Du auch.",
       "effects": [
         "Keine Aktion im Kampf (nur Dodge/Ready/nichts) → 1W10 temp TP am Zugende",
@@ -131,7 +131,7 @@
       "id": "1-5",
       "name": "Schwere Schritte",
       "tier": 1,
-      "icon": "1-5.png",
+      "icon": "1-5.webp",
       "flavor": "Deine Präsenz hat Gewicht.",
       "effects": [
         "Kreaturen in 5 ft. haben Nachteil auf Angriffe gegen andere Ziele als dich"
@@ -151,7 +151,7 @@
       "id": "1-6",
       "name": "Staubhaut",
       "tier": 1,
-      "icon": "1-6.png",
+      "icon": "1-6.webp",
       "flavor": "Erde und Staub haften an dir – und schützen dich.",
       "effects": [
         "Reaktion auf Treffer: Reduziere Schaden um 1W10 + CON-Mod",
@@ -172,7 +172,7 @@
       "id": "1-7",
       "name": "Echos der Gefallenen",
       "tier": 1,
-      "icon": "1-7.png",
+      "icon": "1-7.webp",
       "flavor": "Du hörst die letzten Worte derer, die hier fielen.",
       "effects": [
         "Spüre wenn jemand hier starb (letzte 24h)",
@@ -189,7 +189,7 @@
       "id": "1-8",
       "name": "Steinschritt",
       "tier": 1,
-      "icon": "1-8.png",
+      "icon": "1-8.webp",
       "flavor": "Du bewegst dich durch Fels wie andere durch Wasser.",
       "effects": [
         "Bewegung durch Erde und unbearbeiteten Stein (5 ft./Runde)",
@@ -207,7 +207,7 @@
       "id": "1-9",
       "name": "Bergeszorn",
       "tier": 1,
-      "icon": "1-9.png",
+      "icon": "1-9.webp",
       "flavor": "Die Erde bebt, wenn du wütend bist.",
       "effects": [
         "Bei ≤50% TP: Alle in 10 ft. DEX-Save oder zu Boden",
@@ -227,7 +227,7 @@
       "id": "1-10",
       "name": "Lebendige Rüstung",
       "tier": 1,
-      "icon": "1-10.png",
+      "icon": "1-10.webp",
       "flavor": "Stein und Erde formen sich zu deinem Schutz.",
       "effects": [
         "Bonusaktion: Erdige Rüstung, +2 AC für 1 Min, -10 ft. Bewegung",
@@ -244,7 +244,7 @@
       "id": "2-1",
       "name": "Bergeshaut",
       "tier": 2,
-      "icon": "2-1.png",
+      "icon": "2-1.webp",
       "flavor": "Die Erde selbst wird zu deiner Haut.",
       "effects": [
         "Resistenz gegen Wucht-, Stich- und Hiebschaden (nicht-magisch)",
@@ -267,7 +267,7 @@
       "id": "2-2",
       "name": "Unbeugsam",
       "tier": 2,
-      "icon": "2-2.png",
+      "icon": "2-2.webp",
       "flavor": "Was dich nicht tötet, macht dich härter.",
       "effects": [
         "Bei 0 TP → bleibe auf 1 TP (1x pro lange Rast)",
@@ -288,7 +288,7 @@
       "id": "2-3",
       "name": "Erdenwächter",
       "tier": 2,
-      "icon": "2-3.png",
+      "icon": "2-3.webp",
       "flavor": "Du beschützt, wie der Berg das Tal beschützt.",
       "effects": [
         "1x pro Runde: Reaktion → Schaden eines Verbündeten in 10 ft. auf dich umleiten",
@@ -308,7 +308,7 @@
       "id": "2-4",
       "name": "Stimme des Berges",
       "tier": 2,
-      "icon": "2-4.png",
+      "icon": "2-4.webp",
       "flavor": "Du sprichst, und die Erde antwortet.",
       "effects": [
         "Sprich mit der Erde (wie Stone Tell, aber tiefer)",
@@ -329,7 +329,7 @@
       "id": "2-5",
       "name": "Monument",
       "tier": 2,
-      "icon": "2-5.png",
+      "icon": "2-5.webp",
       "flavor": "Du wirst zum lebenden Denkmal.",
       "effects": [
         "Aktion: Werde Monument (1 Min) – keine Bewegung aber:",
@@ -351,7 +351,7 @@
       "id": "cap",
       "name": "Avatar des Berges",
       "tier": 3,
-      "icon": "cap.png",
+      "icon": "cap.webp",
       "flavor": "Du BIST der Berg. Unerschütterlich. Ewig. Geduldig.",
       "effects": [
         "Aktion, 1x pro lange Rast, 1 Min Dauer",

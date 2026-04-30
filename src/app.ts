@@ -30,15 +30,15 @@ const { ApplicationV2, HandlebarsApplicationMixin } = foundry.applications.api;
 function skillIconUrl(skill: SkillDef, aderId?: string | null): string {
   const base = `modules/${MODULE_ID}/assets/img`;
   if (!aderId) {
-    // Base skills: 0_Erdmarkiert.png / 1_Erdgebunden.png
-    if (skill.id === "erdmarkiert") return `${base}/0_Erdmarkiert.png`;
-    if (skill.id === "erdgebunden") return `${base}/1_Erdgebunden.png`;
-    return `${base}/placeholder.png`;
+    // Base skills: 0_Erdmarkiert.webp / 1_Erdgebunden.webp
+    if (skill.id === "erdmarkiert") return `${base}/0_Erdmarkiert.webp`;
+    if (skill.id === "erdgebunden") return `${base}/1_Erdgebunden.webp`;
+    return `${base}/placeholder.webp`;
   }
   // Ader skills: use the folder from the ader data
   const ader = getAderData(aderId);
-  if (!ader) return `${base}/placeholder.png`;
-  const iconFile = skill.id === "cap" ? "CAPSTONE.png" : `${skill.id}.png`;
+  if (!ader) return `${base}/placeholder.webp`;
+  const iconFile = skill.id === "cap" ? "CAPSTONE.webp" : `${skill.id}.webp`;
   return `${base}/${ader.folder}/${iconFile}`;
 }
 
@@ -46,7 +46,7 @@ function skillIconUrl(skill: SkillDef, aderId?: string | null): string {
 function aderBgUrl(aderId: string): string {
   const ader = getAderData(aderId);
   if (!ader) return "";
-  return `modules/${MODULE_ID}/assets/img/${ader.folder}/_BG.png`;
+  return `modules/${MODULE_ID}/assets/img/${ader.folder}/_BG.webp`;
 }
 
 type ViewMode = "main" | "ader" | "summary";

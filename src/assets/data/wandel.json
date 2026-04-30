@@ -23,7 +23,7 @@
       "id": "0-A",
       "name": "Wildnisinstinkt",
       "tier": 0,
-      "icon": "0-A.png",
+      "icon": "0-A.webp",
       "flavor": "Das Land führt dich.",
       "effects": [
         "Du kannst dich nicht verirren in natürlicher Umgebung",
@@ -41,7 +41,7 @@
       "id": "0-B",
       "name": "Spurlos",
       "tier": 0,
-      "icon": "0-B.png",
+      "icon": "0-B.webp",
       "flavor": "Du hinterlässt keine Spuren, es sei denn, du willst es.",
       "effects": [
         "Du hinterlässt keine Fußspuren, keinen Geruch, keine physischen Spuren",
@@ -59,7 +59,7 @@
       "id": "1-1",
       "name": "Windläufer",
       "tier": 1,
-      "icon": "1-1.png",
+      "icon": "1-1.webp",
       "flavor": "Du bewegst dich wie der Wind selbst.",
       "effects": [
         "Deine Bewegungsrate erhöht sich um 10 ft.",
@@ -81,7 +81,7 @@
       "id": "1-2",
       "name": "Naturfreund",
       "tier": 1,
-      "icon": "1-2.png",
+      "icon": "1-2.webp",
       "flavor": "Die Tiere der Erde erkennen dich als einen der ihren.",
       "effects": [
         "Tiere greifen dich nicht an, es sei denn, sie sind magisch kontrolliert oder du provozierst sie",
@@ -98,7 +98,7 @@
       "id": "1-3",
       "name": "Erdentaucher",
       "tier": 1,
-      "icon": "1-3.png",
+      "icon": "1-3.webp",
       "flavor": "Du verschwindest in der Landschaft.",
       "effects": [
         "Als Aktion: Verschmelze mit natürlicher Umgebung (Wald, Berg, Feld, nicht Stadt)",
@@ -117,7 +117,7 @@
       "id": "1-4",
       "name": "Pfadfinder",
       "tier": 1,
-      "icon": "1-4.png",
+      "icon": "1-4.webp",
       "flavor": "Du findest Wege, die andere nicht sehen.",
       "effects": [
         "Du entdeckst automatisch versteckte Pfade, Tunnel und Durchgänge in natürlicher Umgebung",
@@ -135,7 +135,7 @@
       "id": "1-5",
       "name": "Wetterleser",
       "tier": 1,
-      "icon": "1-5.png",
+      "icon": "1-5.webp",
       "flavor": "Du liest das Wetter wie andere Bücher lesen.",
       "effects": [
         "Du weißt EXAKT, wie das Wetter in den nächsten 12 Stunden sein wird",
@@ -156,7 +156,7 @@
       "id": "1-6",
       "name": "Tiergestalt",
       "tier": 1,
-      "icon": "1-6.png",
+      "icon": "1-6.webp",
       "flavor": "Du trägst die Formen der Erde in dir.",
       "effects": [
         "Als Aktion: Verwandle dich in ein Tier, das du gesehen hast (CR 1/4 oder niedriger, weder Schwimm- noch Flugfähigkeit)",
@@ -179,7 +179,7 @@
       "id": "1-7",
       "name": "Erdensinn",
       "tier": 1,
-      "icon": "1-7.png",
+      "icon": "1-7.webp",
       "flavor": "Du spürst alles, was das Land berührt.",
       "effects": [
         "Tremorsense 30 ft.",
@@ -197,7 +197,7 @@
       "id": "1-8",
       "name": "Überlebenskünstler",
       "tier": 1,
-      "icon": "1-8.png",
+      "icon": "1-8.webp",
       "flavor": "Das Land sorgt für dich.",
       "effects": [
         "Du brauchst nur halb so viel Nahrung und Wasser",
@@ -216,7 +216,7 @@
       "id": "1-9",
       "name": "Fluchtspur",
       "tier": 1,
-      "icon": "1-9.png",
+      "icon": "1-9.webp",
       "flavor": "Wenn du fliehst, kann niemand folgen.",
       "effects": [
         "Wenn du Dash als Aktion nutzt, hinterlässt du eine Spur, die Verfolger verwirrt",
@@ -234,7 +234,7 @@
       "id": "1-10",
       "name": "Jagdinstinkt",
       "tier": 1,
-      "icon": "1-10.png",
+      "icon": "1-10.webp",
       "flavor": "Du BIST der Jäger.",
       "effects": [
         "Vorteil auf Wahrnehmungs-Würfe zum Verfolgen",
@@ -252,7 +252,7 @@
       "id": "2-1",
       "name": "Große Tiergestalt",
       "tier": 2,
-      "icon": "2-1.png",
+      "icon": "2-1.webp",
       "flavor": "Die mächtigen Tiere der Erde stehen dir offen.",
       "effects": [
         "Erweitert Tiergestalt: CR 2 erlaubt, Flugfähigkeit erlaubt",
@@ -273,7 +273,7 @@
       "id": "2-2",
       "name": "Elementare Verbindung",
       "tier": 2,
-      "icon": "2-2.png",
+      "icon": "2-2.webp",
       "flavor": "Die Geister des Landes kämpfen für dich.",
       "effects": [
         "Einmal pro lange Rast: Rufe einen Erdelelementar",
@@ -294,7 +294,7 @@
       "id": "2-3",
       "name": "Unsichtbarer Pfad",
       "tier": 2,
-      "icon": "2-3.png",
+      "icon": "2-3.webp",
       "flavor": "Du bewegst dich auf Wegen, die nur du siehst.",
       "effects": [
         "Als Aktion: Für 10 Minuten bist du in natürlicher Umgebung vollständig unsichtbar",
@@ -315,7 +315,7 @@
       "id": "2-4",
       "name": "Landverschmelzung",
       "tier": 2,
-      "icon": "2-4.png",
+      "icon": "2-4.webp",
       "flavor": "Du WIRST das Land.",
       "effects": [
         "Als Aktion: Verschmelze vollständig mit natürlicher Umgebung",
@@ -338,7 +338,7 @@
       "id": "2-5",
       "name": "Rudel des Landes",
       "tier": 2,
-      "icon": "2-5.png",
+      "icon": "2-5.webp",
       "flavor": "Du rufst die Jäger der Erde.",
       "effects": [
         "Einmal pro lange Rast: Rufe 2W4 Wölfe oder 1W4 Dire Wolves (deine Wahl)",
@@ -360,7 +360,7 @@
       "id": "cap",
       "name": "Eines mit dem Land",
       "tier": 3,
-      "icon": "cap.png",
+      "icon": "cap.webp",
       "flavor": "Du bist nicht mehr IM Land. Du BIST das Land.",
       "effects": [
         "Aktivierung: 1 Minute Konzentration, 1x pro lange Rast, Dauer: 10 Minuten",

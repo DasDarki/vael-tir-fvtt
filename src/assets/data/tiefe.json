@@ -23,7 +23,7 @@
       "id": "0-A",
       "name": "Spaltenblick",
       "tier": 0,
-      "icon": "0-A.png",
+      "icon": "0-A.webp",
       "flavor": "Du siehst die Risse in allem \u2013 in Mauern, in Pl\u00e4nen, in Menschen.",
       "effects": [
         "Vorteil auf Investigation Checks wenn du nach strukturellen Schw\u00e4chen suchst",
@@ -41,7 +41,7 @@
       "id": "0-B",
       "name": "Staubschatten",
       "tier": 0,
-      "icon": "0-B.png",
+      "icon": "0-B.webp",
       "flavor": "Du verschwindest in den Rissen der Welt.",
       "effects": [
         "Vorteil auf Stealth in Schatten oder Dunkelheit wenn du dich nicht bewegst",
@@ -58,7 +58,7 @@
       "id": "1-1",
       "name": "Risswanderer",
       "tier": 1,
-      "icon": "1-1.png",
+      "icon": "1-1.webp",
       "flavor": "Du bewegst dich durch Spalten, die f\u00fcr andere unsichtbar sind.",
       "effects": [
         "Durch R\u00e4ume zw\u00e4ngen bis minimal zur H\u00e4lfte deiner Gr\u00f6\u00dfe",
@@ -76,7 +76,7 @@
       "id": "1-2",
       "name": "Erdspur",
       "tier": 1,
-      "icon": "1-2.png",
+      "icon": "1-2.webp",
       "flavor": "Die Erde verr\u00e4t dir alles.",
       "effects": [
         "Ber\u00fchrte Spuren verfolgen, als w\u00fcrden sie aufleuchten",
@@ -98,7 +98,7 @@
       "id": "1-3",
       "name": "Lebendiger Schatten",
       "tier": 1,
-      "icon": "1-3.png",
+      "icon": "1-3.webp",
       "flavor": "Dein Schatten gehorcht dir nicht mehr ganz \u2013 aber er hilft dir.",
       "effects": [
         "Schatten kann sich unabh\u00e4ngig bewegen (10 ft. von dir entfernt)",
@@ -116,7 +116,7 @@
       "id": "1-4",
       "name": "Grabstille",
       "tier": 1,
-      "icon": "1-4.png",
+      "icon": "1-4.webp",
       "flavor": "Du bist so still wie ein Grab.",
       "effects": [
         "Kein Laut beim Bewegen (automatischer Erfolg auf Stealth gegen Ger\u00e4usch-basierte Wahrnehmung)",
@@ -133,7 +133,7 @@
       "id": "1-5",
       "name": "Tiefenk\u00e4lte",
       "tier": 1,
-      "icon": "1-5.png",
+      "icon": "1-5.webp",
       "flavor": "Du tr\u00e4gst die K\u00e4lte der tiefen Erde in dir.",
       "effects": [
         "Deine Ber\u00fchrung ist sp\u00fcrbar k\u00fchl",
@@ -151,7 +151,7 @@
       "id": "1-6",
       "name": "Rissentstehung",
       "tier": 1,
-      "icon": "1-6.png",
+      "icon": "1-6.webp",
       "flavor": "Du \u00f6ffnest Risse, wo keine waren.",
       "effects": [
         "Aktion: Erzeuge einen Riss in Stein- oder Erdwand (max 1 ft. breit, 3 ft. tief)",
@@ -174,7 +174,7 @@
       "id": "1-7",
       "name": "Echos der Verborgenen",
       "tier": 1,
-      "icon": "1-7.png",
+      "icon": "1-7.webp",
       "flavor": "Du h\u00f6rst die Geheimnisse, die in der Tiefe gefl\u00fcstert werden.",
       "effects": [
         "Jemand in 10 ft. fl\u00fcstert ein Geheimnis \u2013 du h\u00f6rst es automatisch (wenn du die Sprache kennst)",
@@ -195,7 +195,7 @@
       "id": "1-8",
       "name": "Erdentarnung",
       "tier": 1,
-      "icon": "1-8.png",
+      "icon": "1-8.webp",
       "flavor": "Die Erde verbirgt dich.",
       "effects": [
         "Aktion: Vergrabe dich im Boden (nur Erde)",
@@ -215,7 +215,7 @@
       "id": "1-9",
       "name": "Rissangriff",
       "tier": 1,
-      "icon": "1-9.png",
+      "icon": "1-9.webp",
       "flavor": "Du schl\u00e4gst aus dem Nichts zu.",
       "effects": [
         "Nach mind. 5 ft. Bewegung durch Schatten oder unterirdisch: n\u00e4chster Nahkampfangriff +2W6 Schaden",
@@ -232,7 +232,7 @@
       "id": "1-10",
       "name": "Tiefeninstinkt",
       "tier": 1,
-      "icon": "1-10.png",
+      "icon": "1-10.webp",
       "flavor": "Die Tiefe warnt dich vor Gefahr.",
       "effects": [
         "Kannst nicht \u00fcberrascht werden auf nat\u00fcrlichem Boden",
@@ -249,7 +249,7 @@
       "id": "2-1",
       "name": "Schattenwandler",
       "tier": 2,
-      "icon": "2-1.png",
+      "icon": "2-1.webp",
       "flavor": "Du BIST ein Schatten.",
       "effects": [
         "Bonusaktion: In eigenen Schatten \u201efallen lassen\u201c",
@@ -272,7 +272,7 @@
       "id": "2-2",
       "name": "Tiefenklinge",
       "tier": 2,
-      "icon": "2-2.png",
+      "icon": "2-2.webp",
       "flavor": "Deine Waffe tr\u00e4gt die K\u00e4lte der Tiefe.",
       "effects": [
         "Waffe verursacht permanent +1W6 K\u00e4lteschaden",
@@ -296,7 +296,7 @@
       "id": "2-3",
       "name": "Erdverschlinger",
       "tier": 2,
-      "icon": "2-3.png",
+      "icon": "2-3.webp",
       "flavor": "Die Erde \u00f6ffnet sich f\u00fcr dich \u2013 und schlie\u00dft sich hinter dir.",
       "effects": [
         "Bewegung durch Erde und Stein (20 ft. Bewegung)",
@@ -317,7 +317,7 @@
       "id": "2-4",
       "name": "Geheimnisw\u00e4chter",
       "tier": 2,
-      "icon": "2-4.png",
+      "icon": "2-4.webp",
       "flavor": "Du sammelst Geheimnisse wie andere Gold sammeln.",
       "effects": [
         "Geheimnis in Stein speichern \u2013 Kreatur mit Losung kann es absorbieren (Aktion)",
@@ -339,7 +339,7 @@
       "id": "2-5",
       "name": "Riss der Realit\u00e4t",
       "tier": 2,
-      "icon": "2-5.png",
+      "icon": "2-5.webp",
       "flavor": "Du \u00f6ffnest Risse, die mehr als nur physisch sind.",
       "effects": [
         "1x pro lange Rast: \u00d6ffne einen Riss zwischen zwei sichtbaren Punkten (max 100 ft.)",
@@ -361,7 +361,7 @@
       "id": "cap",
       "name": "Herr des Abgrunds",
       "tier": 3,
-      "icon": "cap.png",
+      "icon": "cap.webp",
       "flavor": "Du bist nicht mehr von dieser Welt. Du bist der Raum ZWISCHEN den Dingen.",
       "effects": [
         "Aktion, 1x pro lange Rast, 1 Min Dauer",

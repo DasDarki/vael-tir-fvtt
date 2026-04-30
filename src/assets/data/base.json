@@ -4,7 +4,7 @@
       "id": "erdmarkiert",
       "name": "Erdmarkiert",
       "tier": -1,
-      "icon": "erdmarkiert.png",
+      "icon": "erdmarkiert.webp",
       "flavor": "Die Erde hat dich berührt. Du trägst ihre Markierung, auch wenn du sie noch nicht verstehst.",
       "effects": [
         "Einmal pro Tag: Handvoll Erde berühren → vager emotionaler Eindruck",
@@ -22,7 +22,7 @@
       "id": "erdgebunden",
       "name": "Erdgebunden",
       "tier": -1,
-      "icon": "erdgebunden.png",
+      "icon": "erdgebunden.webp",
       "flavor": "Du hast gewählt. Die Erde hat geantwortet. Ihr seid nun verbunden.",
       "effects": [
         "10 Min reglos verharren → Teil der Landschaft (Passive Perception nutzlos, aktiv mit Disadvantage)",
