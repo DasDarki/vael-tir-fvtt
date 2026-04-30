@@ -119,24 +119,71 @@ export function getSkillLevel(flags: ErdgebundenFlags, skillId: string): number 
 
 // ── Ahnenstein Counting ──
 
+function getItemQuantity(item: any): number {
+  const q = item?.system?.quantity;
+  if (typeof q === "number") return q;
+  if (q && typeof q === "object" && typeof q.value === "number") return q.value;
+  return 1;
+}
+
 export function countAhnensteine(actor: any): number {
   if (!actor.items) return 0;
   let count = 0;
   for (const item of actor.items) {
-    if (item.name === "Ahnenstein") count++;
+    if (item.name === "Ahnenstein") count += getItemQuantity(item);
   }
   return count;
 }
 
-export function getAhnensteinIds(actor: any, count: number): string[] {
-  const ids: string[] = [];
+/**
+ * Consume `count` Ahnensteine from the actor, walking through stacks.
+ * Decrements quantity on partially-used stacks; deletes fully-used stacks.
+ * Returns true if enough stones were available and consumption succeeded.
+ */
+export async function consumeAhnensteine(actor: any, count: number): Promise<boolean> {
+  if (count <= 0) return true;
+  if (!actor.items) return false;
+
+  const stones: any[] = [];
   for (const item of actor.items) {
-    if (item.name === "Ahnenstein") {
-      ids.push(item.id);
-      if (ids.length >= count) break;
+    if (item.name === "Ahnenstein") stones.push(item);
+  }
+
+  let total = 0;
+  for (const s of stones) total += getItemQuantity(s);
+  if (total < count) return false;
+
+  const toDelete: string[] = [];
+  const toUpdate: Record<string, any>[] = [];
+  let remaining = count;
+
+  for (const item of stones) {
+    if (remaining <= 0) break;
+    const qty = getItemQuantity(item);
+    if (qty <= remaining) {
+      toDelete.push(item.id);
+      remaining -= qty;
+    } else {
+      const newQty = qty - remaining;
+      const rawQty = item?.system?.quantity;
+      const update: Record<string, any> = { _id: item.id };
+      if (rawQty && typeof rawQty === "object" && typeof rawQty.value === "number") {
+        update["system.quantity.value"] = newQty;
+      } else {
+        update["system.quantity"] = newQty;
+      }
+      toUpdate.push(update);
+      remaining = 0;
     }
   }
-  return ids;
+
+  if (toUpdate.length > 0) {
+    await actor.updateEmbeddedDocuments("Item", toUpdate);
+  }
+  if (toDelete.length > 0) {
+    await actor.deleteEmbeddedDocuments("Item", toDelete);
+  }
+  return true;
 }
 
 // ── JSON Data Cache & Loading ──

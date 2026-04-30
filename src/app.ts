@@ -10,7 +10,7 @@ import {
   getAderData,
   getAllAdern,
   countAhnensteine,
-  getAhnensteinIds,
+  consumeAhnensteine,
 } from "./data.ts";
 import {
   type SkillState,
@@ -471,12 +471,11 @@ export class ErdgebundenApp extends HandlebarsApplicationMixin(ApplicationV2) {
 
     // Consume Ahnensteine if skill has a cost
     if (skill.cost > 0) {
-      const ids = getAhnensteinIds(this.actor, skill.cost);
-      if (ids.length < skill.cost) {
+      const ok = await consumeAhnensteine(this.actor, skill.cost);
+      if (!ok) {
         ui.notifications?.error("Nicht genug Ahnensteine!");
         return;
       }
-      await this.actor.deleteEmbeddedDocuments("Item", ids);
     }
 
     // Re-load flags after item deletion (actor state changed)
@@ -532,12 +531,11 @@ export class ErdgebundenApp extends HandlebarsApplicationMixin(ApplicationV2) {
 
     // Remove Ahnensteine items
     if (cost > 0) {
-      const ids = getAhnensteinIds(this.actor, cost);
-      if (ids.length < cost) {
+      const ok = await consumeAhnensteine(this.actor, cost);
+      if (!ok) {
         ui.notifications?.error("Nicht genug Ahnensteine!");
         return;
       }
-      await this.actor.deleteEmbeddedDocuments("Item", ids);
     }
 
     // Re-load flags after item deletion (actor state changed)
