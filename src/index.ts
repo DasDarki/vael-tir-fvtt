@@ -2,6 +2,7 @@ import "styles/index.scss";
 
 import { MODULE_ID, setSocket } from "./consts.ts";
 import { loadAllData, getFlags } from "./data.ts";
+import { syncActorMechanics } from "./mechanics.ts";
 import { ErdgebundenApp } from "./app.ts";
 
 // ── Socket Setup ──
@@ -39,6 +40,19 @@ Hooks.once("ready", async () => {
     console.log(`[${MODULE_ID}] Skill data loaded successfully`);
   } catch (e) {
     console.error(`[${MODULE_ID}] Failed to load skill data:`, e);
+    return;
+  }
+
+  // Reconcile sheet mechanics for all owned actors so existing, already-skilled
+  // characters get their Active Effects without having to reopen the skill tree.
+  const actors: any[] = (game as any).actors?.contents ?? [];
+  for (const actor of actors) {
+    if (!actor?.isOwner) continue;
+    try {
+      await syncActorMechanics(actor);
+    } catch (e) {
+      console.error(`[${MODULE_ID}] Failed to sync mechanics for actor "${actor?.name}":`, e);
+    }
   }
 });
 

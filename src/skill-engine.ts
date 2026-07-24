@@ -127,6 +127,20 @@ function isExcluded(flags: ErdgebundenFlags, ader: AderDef, skill: SkillDef): bo
   return getExclusionReason(flags, ader, skill) !== null;
 }
 
+/**
+ * List the names of all skills mutually exclusive with this one — regardless of
+ * unlock state. Combines this skill's own `excludes` with a reverse lookup over
+ * skills that exclude it, so the conflict is visible *before* either is chosen.
+ */
+export function getExclusionInfo(ader: AderDef, skill: SkillDef): string[] {
+  const ids = new Set<string>(skill.excludes);
+  for (const other of ader.skills) {
+    if (other.id === skill.id) continue;
+    if (other.excludes.includes(skill.id)) ids.add(other.id);
+  }
+  return [...ids].map((id) => skillName(ader, id).replace(/^"|"$/g, ""));
+}
+
 /** Get the visual state of a skill */
 export function getSkillState(
   flags: ErdgebundenFlags,

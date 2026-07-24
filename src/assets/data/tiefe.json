@@ -30,6 +30,9 @@
         "Vorteil auf Wahrnehmung-W\u00fcrfe, um versteckte T\u00fcren, Fallen oder Geheimg\u00e4nge zu finden",
         "Tremorsense 10 ft. in absoluter und magischer Dunkelheit"
       ],
+      "mechanics": [
+        { "type": "sense", "sense": "tremorsense", "value": 10 }
+      ],
       "cost": 1,
       "maxLevel": 1,
       "requires": [],
@@ -303,6 +306,9 @@
         "Atmen m\u00f6glich w\u00e4hrend unterirdisch (die Erde gibt dir Luft)",
         "Kein H\u00f6ren und keine andere Kreaturen sehen m\u00f6glich"
       ],
+      "mechanics": [
+        { "type": "speed", "movement": "burrow", "value": 20 }
+      ],
       "cost": 2,
       "maxLevel": 1,
       "requires": [
@@ -351,7 +357,7 @@
       "maxLevel": 1,
       "requires": [
         { "type": "tier", "tier": 1, "count": 3 },
-        { "type": "skill", "skill": "1-6", "minLevel": 2 }
+        { "type": "skillLevel", "skill": "1-6", "level": 2 }
       ],
       "excludes": ["2-1"],
       "freeWithAder": false,

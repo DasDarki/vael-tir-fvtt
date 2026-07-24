@@ -70,6 +70,9 @@
         "Level 2: +15 ft., du kannst über Wasser laufen (nicht stehen)",
         "Level 3: +20 ft., du kannst an vertikalen Oberflächen laufen (ein Viertel der Bewegungsrate)"
       ],
+      "mechanics": [
+        { "type": "speed", "movement": "walk", "perLevel": [10, 15, 20] }
+      ],
       "cost": 1,
       "maxLevel": 3,
       "requires": [{ "type": "tier", "tier": 0, "count": 1 }],
@@ -186,6 +189,9 @@
         "Du weißt, was in einem 100-ft.-Radius mit dem Land passiert (Gräben werden gegraben, Bäume fallen, etc.)",
         "Die Erde \"warnt\" dich vor Gefahren, die auf dem Boden sind"
       ],
+      "mechanics": [
+        { "type": "sense", "sense": "tremorsense", "value": 30 }
+      ],
       "cost": 1,
       "maxLevel": 1,
       "requires": [{ "type": "tier", "tier": 0, "count": 1 }],
@@ -263,7 +269,7 @@
       "maxLevel": 1,
       "requires": [
         { "type": "tier", "tier": 1, "count": 3 },
-        { "type": "skill", "skill": "1-6", "minLevel": 2 }
+        { "type": "skillLevel", "skill": "1-6", "level": 2 }
       ],
       "excludes": [],
       "freeWithAder": false,

@@ -22,7 +22,9 @@ import {
   getMaxAllowedTier,
   getUnlockedSkillsList,
   countInvestedAhnensteine,
+  getExclusionInfo,
 } from "./skill-engine.ts";
+import { syncActorMechanics } from "./mechanics.ts";
 
 const { ApplicationV2, HandlebarsApplicationMixin } = foundry.applications.api;
 
@@ -362,6 +364,7 @@ export class ErdgebundenApp extends HandlebarsApplicationMixin(ApplicationV2) {
     let state: SkillState = "locked";
     let level = 0;
     let canDo: { allowed: boolean; reason?: string } = { allowed: false, reason: "" };
+    let exclusionNames: string[] = [];
 
     const flags = getFlags(this.actor);
 
@@ -375,6 +378,7 @@ export class ErdgebundenApp extends HandlebarsApplicationMixin(ApplicationV2) {
       state = getSkillState(flags, ader, skill);
       level = getSkillLevel(flags, key);
       canDo = canUnlockSkill(this.actor, flags, ader, skill);
+      exclusionNames = getExclusionInfo(ader, skill);
     } else {
       const base = getBaseData();
       skill = base.skills.find((s) => s.id === key);
@@ -401,6 +405,12 @@ export class ErdgebundenApp extends HandlebarsApplicationMixin(ApplicationV2) {
          </div>`
       : "";
 
+    const exclusionsHtml = exclusionNames.length
+      ? `<div class="tooltip-exclusions">
+           <i class="fas fa-ban"></i> Schließt sich gegenseitig aus mit: ${exclusionNames.join(", ")}
+         </div>`
+      : "";
+
     tooltip.innerHTML = `
       <div class="skill-tooltip">
         <div class="tooltip-header">
@@ -414,6 +424,7 @@ export class ErdgebundenApp extends HandlebarsApplicationMixin(ApplicationV2) {
         <div class="tooltip-state state-${state}">
           ${state === "unlocked" ? `Level ${level}/${skill.maxLevel}` : state === "available" ? "Verfügbar" : state === "excluded" ? "Ausgeschlossen" : "Gesperrt"}
         </div>
+        ${exclusionsHtml}
         <div class="tooltip-effects">
           <h4>Effekte</h4>
           <ul>${skill.effects.map((e) => `<li>${e}</li>`).join("")}</ul>
@@ -453,6 +464,7 @@ export class ErdgebundenApp extends HandlebarsApplicationMixin(ApplicationV2) {
     }
 
     await setFlags(this.actor, flags);
+    await syncActorMechanics(this.actor);
     ui.notifications?.info(flags.activated ? "Erdgebunden aktiviert" : "Erdgebunden deaktiviert");
     await this.render({ force: true });
   }
@@ -484,6 +496,7 @@ export class ErdgebundenApp extends HandlebarsApplicationMixin(ApplicationV2) {
     finalFlags.skills[skillId] = (finalFlags.skills[skillId] ?? 0) + 1;
     console.log(`[Erdgebunden] Setting base skill "${skillId}" to level=${finalFlags.skills[skillId]}`);
     await setFlags(this.actor, finalFlags);
+    await syncActorMechanics(this.actor);
     console.log(`[Erdgebunden] Flags saved. Verifying:`, getFlags(this.actor).skills);
     this._closeTooltip();
     await this.render({ force: true });
@@ -551,6 +564,7 @@ export class ErdgebundenApp extends HandlebarsApplicationMixin(ApplicationV2) {
 
     console.log(`[Erdgebunden] Setting ader skill "${key}" to level=${finalFlags.skills[key]}`);
     await setFlags(this.actor, finalFlags);
+    await syncActorMechanics(this.actor);
     console.log(`[Erdgebunden] Flags saved. Verifying:`, getFlags(this.actor).skills);
     this._closeTooltip();
     await this.render({ force: true });

@@ -16,6 +16,36 @@ export interface GridPos {
   row: number;
 }
 
+/**
+ * Declarative sheet-mechanical effect of a skill. These are compiled into
+ * FoundryVTT Active-Effect changes and applied to the actor by mechanics.ts.
+ * The skill's `effects`/`levelEffects` text fields are untouched (display only).
+ */
+export interface SkillMechanic {
+  type:
+    | "resistance"
+    | "immunity"
+    | "vulnerability"
+    | "conditionImmunity"
+    | "speed"
+    | "sense"
+    | "raw";
+  /** resistance/immunity/... : damage/condition key. speed/sense: numeric value. */
+  value?: string | number;
+  /** for type "speed" */
+  movement?: "walk" | "fly" | "swim" | "climb" | "burrow";
+  /** for type "sense" */
+  sense?: "darkvision" | "blindsight" | "tremorsense" | "truesight";
+  /** AE apply mode; sensible default per type when omitted. */
+  mode?: "add" | "override" | "upgrade" | "downgrade" | "multiply" | "custom";
+  /** index = level-1; overrides `value` based on the skill's current level (replace, not stack). */
+  perLevel?: (number | string)[];
+  /** escape hatch for type "raw": any dnd5e Active-Effect change key. */
+  key?: string;
+  /** when set, this mechanic becomes a disabled toggle Active-Effect; text is the toggle label. */
+  condition?: string;
+}
+
 export interface SkillDef {
   id: string;
   name: string;
@@ -24,6 +54,7 @@ export interface SkillDef {
   flavor: string;
   effects: string[];
   levelEffects?: string[];
+  mechanics?: SkillMechanic[];
   cost: number;
   maxLevel: number;
   requires: SkillPrerequisite[];

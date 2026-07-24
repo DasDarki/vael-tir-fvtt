@@ -30,6 +30,9 @@
         "Immun gegen Schaden durch normale Flammen (Lagerfeuer, Fackeln)",
         "Dein Blut ist spürbar wärmer – manche sagen, es dampft leicht"
       ],
+      "mechanics": [
+        { "type": "resistance", "value": "fire" }
+      ],
       "cost": 1,
       "maxLevel": 1,
       "requires": [],
@@ -46,6 +49,10 @@
       "effects": [
         "Bei ≤50% TP: Deine Angriffe verursachen +2 Schaden",
         "Dieser Bonus ist von keinem Schadenstyp – er ist einfach MEHR"
+      ],
+      "mechanics": [
+        { "type": "raw", "key": "system.bonuses.mwak.damage", "mode": "add", "value": "+2", "condition": "≤50% TP" },
+        { "type": "raw", "key": "system.bonuses.rwak.damage", "mode": "add", "value": "+2", "condition": "≤50% TP" }
       ],
       "cost": 1,
       "maxLevel": 1,
@@ -221,6 +228,9 @@
         "Upgrade von Resistenz zu Immunität gegen Feuerschaden",
         "Du kannst brennende Gegenstände aufheben ohne Schaden",
         "Du kannst in Flammen schlafen"
+      ],
+      "mechanics": [
+        { "type": "immunity", "value": "fire" }
       ],
       "cost": 1,
       "maxLevel": 1,

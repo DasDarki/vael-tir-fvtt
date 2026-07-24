@@ -47,6 +47,9 @@
         "+1 AC wenn letzte Runde ≤10 ft. Bewegung",
         "Kann nicht unfreiwillig zu Boden geworfen werden auf Erde/Stein"
       ],
+      "mechanics": [
+        { "type": "raw", "key": "system.attributes.ac.bonus", "mode": "add", "value": "+1", "condition": "≤10 ft bewegt" }
+      ],
       "cost": 1,
       "maxLevel": 1,
       "requires": [],
@@ -85,6 +88,9 @@
       "effects": [
         "Resistenz gegen Psychischen Schaden",
         "1x pro lange Rast: Wiederhole fehlgeschlagenen WIS-Rettungswurf"
+      ],
+      "mechanics": [
+        { "type": "resistance", "value": "psychic" }
       ],
       "cost": 1,
       "maxLevel": 1,
@@ -196,6 +202,9 @@
         "Kein Atmen möglich dabei",
         "Bearbeiteter Stein blockiert"
       ],
+      "mechanics": [
+        { "type": "speed", "movement": "burrow", "value": 5 }
+      ],
       "cost": 1,
       "maxLevel": 1,
       "requires": [{ "type": "tier", "tier": 0, "count": 1 }],
@@ -252,6 +261,11 @@
       ],
       "levelEffects": [
         "Level 2: Auch Resistenz gegen magische physische Angriffe"
+      ],
+      "mechanics": [
+        { "type": "resistance", "value": "bludgeoning" },
+        { "type": "resistance", "value": "piercing" },
+        { "type": "resistance", "value": "slashing" }
       ],
       "cost": 2,
       "maxLevel": 2,
