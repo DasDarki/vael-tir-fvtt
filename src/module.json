@@ -2,7 +2,7 @@
   "id": "vael-tir-fvtt",
   "title": "Vael Tir",
   "description": "Modul für Vael Tir",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "library": "false",
   "compatibility": {
     "minimum": 10,

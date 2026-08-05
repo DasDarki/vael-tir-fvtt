@@ -1,0 +1,293 @@
+@use "sass:color";
+@use "variables" as *;
+
+.party-pool-app {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  color: $text-primary;
+  gap: 12px;
+
+  // ── Header ──
+
+  .pp-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 12px 14px;
+    background: linear-gradient(135deg, $bg-panel-light, $bg-panel);
+    border: 1px solid $gold-dark;
+    border-radius: $border-radius;
+
+    .pp-balance {
+      display: flex;
+      align-items: baseline;
+      gap: 8px;
+
+      i { color: $gold; }
+      .pp-balance-value {
+        font-size: 1.4rem;
+        font-weight: bold;
+        color: $gold-light;
+      }
+      .pp-balance-label {
+        font-size: 0.8rem;
+        color: $text-secondary;
+      }
+    }
+
+    .pp-actor-select {
+      font-size: 0.85rem;
+      color: $text-secondary;
+
+      select {
+        background: $bg-dark;
+        color: $text-primary;
+        border: 1px solid $gold-dark;
+        border-radius: 4px;
+        padding: 2px 6px;
+      }
+      .pp-warn { color: $red; }
+    }
+  }
+
+  // ── Tabs ──
+
+  .pp-tabs {
+    display: flex;
+    gap: 4px;
+
+    .pp-tab {
+      flex: 1;
+      background: $bg-panel;
+      border: 1px solid $text-muted;
+      border-radius: 6px;
+      color: $text-secondary;
+      padding: 8px 6px;
+      font-size: 0.85rem;
+      cursor: pointer;
+      transition: all $transition-fast;
+
+      &:hover { color: $text-primary; border-color: $gold-dark; }
+      &.active {
+        background: linear-gradient(135deg, $gold-dark, color.adjust($gold-dark, $lightness: -12%));
+        border-color: $gold;
+        color: $gold-light;
+        font-weight: bold;
+      }
+    }
+  }
+
+  // ── Body / panels ──
+
+  .pp-body {
+    flex: 1;
+    overflow-y: auto;
+    padding-right: 4px;
+  }
+
+  .pp-panel {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .pp-card {
+    background: rgba($bg-panel, 0.9);
+    border: 1px solid $gold-dark;
+    border-radius: $border-radius;
+    padding: 12px 14px;
+
+    h3 {
+      margin: 0 0 6px;
+      font-size: 1rem;
+      color: $gold-light;
+    }
+    &.pp-gm { border-color: $blue; h3 { color: $blue; } }
+  }
+
+  .pp-hint {
+    font-size: 0.8rem;
+    color: $text-muted;
+    margin: 0 0 10px;
+  }
+
+  // ── Money inputs ──
+
+  .pp-money-input {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 10px;
+
+    label {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      font-size: 0.85rem;
+      color: $text-secondary;
+    }
+    input {
+      width: 68px;
+      background: $bg-dark;
+      color: $text-primary;
+      border: 1px solid $text-muted;
+      border-radius: 4px;
+      padding: 4px 6px;
+    }
+  }
+
+  // ── Buttons ──
+
+  .pp-btn {
+    background: $bg-panel-light;
+    border: 1px solid $text-muted;
+    border-radius: 4px;
+    color: $text-primary;
+    padding: 7px 14px;
+    font-size: 0.88rem;
+    cursor: pointer;
+    transition: all $transition-fast;
+
+    &:hover { border-color: $gold; box-shadow: $shadow-glow-gold; }
+
+    &.pp-btn-primary {
+      background: linear-gradient(135deg, $green-dim, color.adjust($green, $lightness: -12%));
+      border-color: $green;
+      color: white;
+      &:hover { box-shadow: $shadow-glow-green; }
+    }
+    &.pp-btn-sm { padding: 4px 8px; font-size: 0.78rem; }
+  }
+
+  .pp-gm-buttons { display: flex; gap: 8px; flex-wrap: wrap; }
+
+  // ── Drop zones ──
+
+  .pp-dropzone {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    text-align: center;
+    border: 2px dashed $gold-dark;
+    border-radius: $border-radius;
+    padding: 20px;
+    color: $text-secondary;
+    background: rgba($bg-dark, 0.4);
+    transition: all $transition-fast;
+
+    i { font-size: 1.6rem; color: $gold-dark; }
+    &.drag-over {
+      border-color: $green;
+      background: rgba($green, 0.1);
+      color: $green;
+      i { color: $green; }
+    }
+  }
+
+  // ── Items ──
+
+  .pp-item-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 10px;
+  }
+
+  .pp-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    padding: 10px 8px;
+    background: rgba($bg-panel, 0.9);
+    border: 1px solid $gold-dark;
+    border-radius: $border-radius;
+
+    .pp-item-img {
+      width: 44px;
+      height: 44px;
+      border-radius: 6px;
+      object-fit: cover;
+    }
+    .pp-item-info {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      max-width: 100%;
+    }
+    .pp-item-name {
+      font-size: 0.82rem;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+    .pp-item-qty {
+      font-size: 0.75rem;
+      color: $gold-light;
+      font-weight: bold;
+    }
+  }
+
+  .pp-target-label {
+    display: block;
+    margin-bottom: 10px;
+    font-size: 0.85rem;
+    color: $text-secondary;
+
+    select {
+      margin-left: 6px;
+      background: $bg-dark;
+      color: $text-primary;
+      border: 1px solid $text-muted;
+      border-radius: 4px;
+      padding: 3px 6px;
+    }
+  }
+
+  // ── Log ──
+
+  .pp-log-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .pp-log-entry {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 6px;
+    padding: 6px 10px;
+    background: rgba($bg-panel, 0.7);
+    border-left: 3px solid $text-muted;
+    border-radius: 4px;
+    font-size: 0.82rem;
+
+    .pp-log-time { color: $text-muted; font-size: 0.72rem; }
+    .pp-log-detail { color: $text-primary; flex: 1; }
+    .pp-log-user { color: $text-secondary; font-style: italic; }
+
+    &.pp-log-deposit-money, &.pp-log-deposit-item { border-left-color: $green; }
+    &.pp-log-withdraw-money, &.pp-log-withdraw-item { border-left-color: $red; }
+    &.pp-log-gm-add-money, &.pp-log-distribute { border-left-color: $blue; }
+    &.pp-log-transfer-money, &.pp-log-transfer-item { border-left-color: $gold; }
+  }
+
+  .pp-empty {
+    text-align: center;
+    color: $text-muted;
+    padding: 24px;
+    font-style: italic;
+  }
+
+  .pp-check {
+    display: block;
+    margin: 3px 0;
+    font-size: 0.88rem;
+  }
+}

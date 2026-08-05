@@ -1,0 +1,174 @@
+<div class="party-pool-app">
+  <div class="pp-header">
+    <div class="pp-balance">
+      <i class="fas fa-coins"></i>
+      <span class="pp-balance-value">{{moneyDisplay}}</span>
+      <span class="pp-balance-label">in der Gildenbank</span>
+    </div>
+
+    <div class="pp-actor-select">
+      {{#if hasActor}}
+        <label>Charakter:
+          <select data-select-actor>
+            {{#each ownedCharacters}}
+              <option value="{{id}}" {{#if (eq id ../selectedActorId)}}selected{{/if}}>{{name}}</option>
+            {{/each}}
+          </select>
+        </label>
+      {{else}}
+        <span class="pp-warn">Kein eigener Charakter zugewiesen</span>
+      {{/if}}
+    </div>
+  </div>
+
+  <nav class="pp-tabs">
+    <button type="button" class="pp-tab {{#if (eq tab "money")}}active{{/if}}" data-action="switch-tab" data-tab="money">
+      <i class="fas fa-coins"></i> Geld
+    </button>
+    <button type="button" class="pp-tab {{#if (eq tab "items")}}active{{/if}}" data-action="switch-tab" data-tab="items">
+      <i class="fas fa-box-open"></i> Items {{#if itemCount}}({{itemCount}}){{/if}}
+    </button>
+    <button type="button" class="pp-tab {{#if (eq tab "transfer")}}active{{/if}}" data-action="switch-tab" data-tab="transfer">
+      <i class="fas fa-right-left"></i> Übergeben
+    </button>
+    {{#if isGM}}
+      <button type="button" class="pp-tab {{#if (eq tab "log")}}active{{/if}}" data-action="switch-tab" data-tab="log">
+        <i class="fas fa-scroll"></i> Log
+      </button>
+    {{/if}}
+  </nav>
+
+  <div class="pp-body">
+
+    {{#if (eq tab "money")}}
+      <div class="pp-panel pp-money">
+        <section class="pp-card">
+          <h3>Einzahlen</h3>
+          <p class="pp-hint">Wird von deinem Charakter abgezogen und in die Gildenbank gelegt.</p>
+          <div class="pp-money-input">
+            <label>GP <input type="number" min="0" value="0" data-deposit="gp" /></label>
+            <label>SP <input type="number" min="0" value="0" data-deposit="sp" /></label>
+            <label>CP <input type="number" min="0" value="0" data-deposit="cp" /></label>
+          </div>
+          <button type="button" class="pp-btn pp-btn-primary" data-action="deposit-money">
+            <i class="fas fa-arrow-down"></i> Einzahlen
+          </button>
+        </section>
+
+        <section class="pp-card">
+          <h3>Entnehmen</h3>
+          <p class="pp-hint">Braucht die Bestätigung des GM (außer du bist GM).</p>
+          <div class="pp-money-input">
+            <label>GP <input type="number" min="0" value="0" data-withdraw="gp" /></label>
+            <label>SP <input type="number" min="0" value="0" data-withdraw="sp" /></label>
+            <label>CP <input type="number" min="0" value="0" data-withdraw="cp" /></label>
+          </div>
+          <button type="button" class="pp-btn" data-action="withdraw-money">
+            <i class="fas fa-arrow-up"></i> Entnehmen
+          </button>
+        </section>
+
+        {{#if isGM}}
+          <section class="pp-card pp-gm">
+            <h3><i class="fas fa-crown"></i> GM-Werkzeuge</h3>
+            <div class="pp-money-input">
+              <label>GP <input type="number" min="0" value="0" data-gmadd="gp" /></label>
+              <label>SP <input type="number" min="0" value="0" data-gmadd="sp" /></label>
+              <label>CP <input type="number" min="0" value="0" data-gmadd="cp" /></label>
+            </div>
+            <div class="pp-gm-buttons">
+              <button type="button" class="pp-btn" data-action="gm-add-money">
+                <i class="fas fa-plus"></i> Aus dem Nichts hinzufügen
+              </button>
+              <button type="button" class="pp-btn pp-btn-primary" data-action="distribute">
+                <i class="fas fa-scale-balanced"></i> Beute verteilen (30/70)
+              </button>
+            </div>
+          </section>
+        {{/if}}
+      </div>
+    {{/if}}
+
+    {{#if (eq tab "items")}}
+      <div class="pp-panel pp-items">
+        <div class="pp-dropzone" data-dropzone="deposit">
+          <i class="fas fa-hand-holding-box"></i>
+          <span>Gegenstand vom Charakterblatt hierher ziehen, um ihn einzuzahlen</span>
+        </div>
+
+        {{#if items.length}}
+          <div class="pp-item-grid">
+            {{#each items}}
+              <div class="pp-item">
+                <img class="pp-item-img" src="{{img}}" alt="{{name}}" />
+                <div class="pp-item-info">
+                  <span class="pp-item-name" title="{{name}}">{{name}}</span>
+                  {{#if (gt qty 1)}}<span class="pp-item-qty">×{{qty}}</span>{{/if}}
+                </div>
+                <button type="button" class="pp-btn pp-btn-sm" data-action="withdraw-item" data-pool-id="{{poolId}}">
+                  <i class="fas fa-arrow-up"></i> Entnehmen
+                </button>
+              </div>
+            {{/each}}
+          </div>
+        {{else}}
+          <p class="pp-empty">Keine Gegenstände im Party-Pool.</p>
+        {{/if}}
+      </div>
+    {{/if}}
+
+    {{#if (eq tab "transfer")}}
+      <div class="pp-panel pp-transfer">
+        {{#if transferTargets.length}}
+          <section class="pp-card">
+            <h3>An Spieler übergeben</h3>
+            <label class="pp-target-label">Ziel-Spieler:
+              <select data-transfer-target>
+                {{#each transferTargets}}
+                  <option value="{{id}}">{{name}}</option>
+                {{/each}}
+              </select>
+            </label>
+
+            <div class="pp-money-input">
+              <label>GP <input type="number" min="0" value="0" data-transfer="gp" /></label>
+              <label>SP <input type="number" min="0" value="0" data-transfer="sp" /></label>
+              <label>CP <input type="number" min="0" value="0" data-transfer="cp" /></label>
+            </div>
+            <button type="button" class="pp-btn pp-btn-primary" data-action="transfer-money">
+              <i class="fas fa-right-left"></i> Geld übergeben
+            </button>
+
+            <div class="pp-dropzone" data-dropzone="transfer">
+              <i class="fas fa-hand-holding-box"></i>
+              <span>Gegenstand hierher ziehen, um ihn an den gewählten Spieler zu geben</span>
+            </div>
+          </section>
+        {{else}}
+          <p class="pp-empty">Keine anderen Spieler-Charaktere für Übergaben verfügbar.</p>
+        {{/if}}
+      </div>
+    {{/if}}
+
+    {{#if isGM}}
+      {{#if (eq tab "log")}}
+        <div class="pp-panel pp-log">
+          {{#if hasLog}}
+            <ul class="pp-log-list">
+              {{#each log}}
+                <li class="pp-log-entry pp-log-{{action}}">
+                  <span class="pp-log-time">{{time}}</span>
+                  <span class="pp-log-detail">{{detail}}</span>
+                  <span class="pp-log-user">— {{userName}}</span>
+                </li>
+              {{/each}}
+            </ul>
+          {{else}}
+            <p class="pp-empty">Noch keine Aktivitäten protokolliert.</p>
+          {{/if}}
+        </div>
+      {{/if}}
+    {{/if}}
+
+  </div>
+</div>

@@ -1,9 +1,22 @@
 import "styles/index.scss";
 
-import { MODULE_ID, setSocket } from "./consts.ts";
+import { MODULE_ID, setSocket, POOL_SOCKET, PARTY_POOL_SETTING } from "./consts.ts";
 import { loadAllData, getFlags } from "./data.ts";
 import { syncActorMechanics } from "./mechanics.ts";
 import { ErdgebundenApp } from "./app.ts";
+import { PartyPoolApp } from "./party-pool.ts";
+import {
+  registerPartyPoolSetting,
+  getPoolState,
+  formatMoney,
+  depositMoney,
+  depositItem,
+  withdrawMoney,
+  withdrawItem,
+  transferMoney,
+  transferItem,
+  type PoolResult,
+} from "./pool-data.ts";
 
 // ── Socket Setup ──
 
@@ -16,13 +29,52 @@ Hooks.once("socketlib.ready", () => {
     // GM-side handler: handled via flag updates, no extra logic needed
   });
 
+  // Party-pool operations run authoritatively on a GM client.
+  // Deposits and P2P transfers are free; withdrawals require GM approval.
+  socket.register(POOL_SOCKET.depositMoney, (d: any) => depositMoney(d.actorId, d.amountCp, d.userName));
+  socket.register(POOL_SOCKET.depositItem, (d: any) => depositItem(d.itemUuid, d.userName));
+  socket.register(POOL_SOCKET.transferMoney, (d: any) => transferMoney(d.fromId, d.toId, d.amountCp, d.userName));
+  socket.register(POOL_SOCKET.transferItem, (d: any) => transferItem(d.fromId, d.toId, d.itemUuid, d.userName));
+  socket.register(POOL_SOCKET.withdrawMoney, (d: any) => gmApproveWithdrawMoney(d));
+  socket.register(POOL_SOCKET.withdrawItem, (d: any) => gmApproveWithdrawItem(d));
+
   setSocket(socket);
 });
+
+/** GM-side approval dialog for a money withdrawal request, then performs it. */
+async function gmApproveWithdrawMoney(d: any): Promise<PoolResult> {
+  const actor = (game as any).actors?.get(d.actorId);
+  const approved = await foundry.applications.api.DialogV2.confirm({
+    window: { title: "Pool-Entnahme genehmigen" },
+    content: `<p><strong>${d.userName}</strong> möchte <strong>${formatMoney(d.amountCp)}</strong> für „${actor?.name ?? "?"}" aus dem Party-Pool entnehmen.</p>`,
+    yes: { label: "Genehmigen" },
+    no: { label: "Ablehnen" },
+  });
+  if (!approved) return { ok: false, reason: "Vom GM abgelehnt" };
+  return withdrawMoney(d.actorId, d.amountCp, d.userName);
+}
+
+/** GM-side approval dialog for an item withdrawal request, then performs it. */
+async function gmApproveWithdrawItem(d: any): Promise<PoolResult> {
+  const entry = getPoolState().items.find((i) => i.poolId === d.poolId);
+  if (!entry) return { ok: false, reason: "Gegenstand nicht mehr im Pool" };
+  const actor = (game as any).actors?.get(d.actorId);
+  const approved = await foundry.applications.api.DialogV2.confirm({
+    window: { title: "Pool-Entnahme genehmigen" },
+    content: `<p><strong>${d.userName}</strong> möchte „${entry.data?.name ?? "?"}" für „${actor?.name ?? "?"}" aus dem Party-Pool entnehmen.</p>`,
+    yes: { label: "Genehmigen" },
+    no: { label: "Ablehnen" },
+  });
+  if (!approved) return { ok: false, reason: "Vom GM abgelehnt" };
+  return withdrawItem(d.actorId, d.poolId, d.userName);
+}
 
 // ── Initialization ──
 
 Hooks.once("init", async () => {
   console.log(`[${MODULE_ID}] Initializing Erdgebunden module`);
+
+  registerPartyPoolSetting();
 
   // Load all templates
   foundry.applications.handlebars.loadTemplates([
@@ -30,7 +82,26 @@ Hooks.once("init", async () => {
     `modules/${MODULE_ID}/templates/ader-view.hbs`,
     `modules/${MODULE_ID}/templates/skill-tooltip.hbs`,
     `modules/${MODULE_ID}/templates/summary-view.hbs`,
+    `modules/${MODULE_ID}/templates/party-pool.hbs`,
   ]);
+});
+
+// ── Party Pool: chat command & live refresh ──
+
+Hooks.on("chatMessage", (_log: any, message: string) => {
+  if (/^\/party-?pool\b/i.test((message ?? "").trim())) {
+    PartyPoolApp.open();
+    return false;
+  }
+  return undefined;
+});
+
+// The pool state lives in a world setting; updateSetting fires on every client
+// when it changes, so open pool windows refresh themselves without manual sockets.
+Hooks.on("updateSetting", (setting: any) => {
+  if ((setting?.key ?? "").endsWith(PARTY_POOL_SETTING)) {
+    PartyPoolApp.refreshOpen();
+  }
 });
 
 Hooks.once("ready", async () => {
